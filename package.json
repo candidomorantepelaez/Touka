@@ -1,6 +1,10 @@
 {
   "name": "touka",
   "version": "0.1.0",
+  "description": "Framework for React",
+  "main": "build/index.js",
+  "author": "Candido Morante Pelaez",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -29,11 +33,10 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "webpack --mode development --config config/webpack.config.js --watch",
+    "build": "webpack --mode production --config config/webpack.config.js --progress",
     "startwithapi": "react-scripts start & npm run apiserver",
-    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
     "apiserver": "node src/core/server/index.js"
   },
   "devDependencies": {
