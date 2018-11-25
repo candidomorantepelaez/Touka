@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.tarjeta{
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.boton-tarjeta{
+  margin-left: 10px;
+}
+
+.icono{
+  margin: 5px;
+  cursor: pointer;
+  color: blue;
+}
+
+.activado{
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+.activado .nav-link{
+  color: white;
+}
+
+.estilo-nav{
+  color: #007bff;
+}
+
+.valid-input{
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #28a745;
+}
+
+.invalid-input{
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.alert{
+  margin-top: 10px;
+}
+
+.menu-session-button{
+  padding-top: 4px;
+}
+
+.page-review{
+  margin-top: 10px;
+}
