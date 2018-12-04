@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path'); 
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -9,17 +10,21 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules|build)/,
         use: {
           loader: 'babel-loader',
-        },
+          options: {
+            presets: ['@babel/preset-env', '@babel/react'],
+            plugins: ['@babel/plugin-proposal-class-properties']
+          },
+        }
       },
       {
         test: /\.css$/,
         exclude: /(node_modules|build)/,
         use: ['style-loader', 'css-loader'],
-      },
+      }
     ],
   },
   externals: {
@@ -30,10 +35,10 @@ module.exports = {
       root: 'React',
     },
     'prop-types': {
-      commonjs: 'prop-types',
-      commonjs2: 'prop-types',
-      amd: 'PropTypes',
-      root: 'PropTypes',
+       commonjs: 'prop-types',
+       commonjs2: 'prop-types',
+       amd: 'PropTypes',
+       root: 'PropTypes',
     },
   },
   resolve: {
@@ -41,7 +46,7 @@ module.exports = {
     alias: {
       react: path.resolve(__dirname, './node_modules/react'),
       'prop-types': path.resolve(
-        __dirname,
+        __dirname, 
         './node_modules/prop-types'
       ),
       'styled-components': path.resolve(
