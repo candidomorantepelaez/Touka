@@ -1,29 +1,51 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { isNil } from "ramda";
-import { Route, Switch } from "react-router-dom";
-import LoginPage from "pages/login/login-page";
-import HomePage from "pages/home/home-page";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { isNil, addIndex, map } from 'ramda'
+import { Route, Switch } from 'react-router-dom'
+import ConfigContext from 'contexts/config-context'
+import { NoMatchComponent } from 'pages/home/home-page'
 
-const createRoutes = routes => {
+
+const createRoutes = (routes) => {
   if (isNil(routes)) {
-    return null;
+    return null
   }
-  return routes.map((ruta, key) => (<Route path={ruta.path} component={ruta.component} exact={ruta.exact} key={key} />));
+  return addIndex(map)((ruta, idx) => (<Route path={ruta.path} component={ruta.component} exact={ruta.exact} key={idx} />), routes)
 }
 
-const AppRoutes = props => (
-    <Switch>
-      {createRoutes(props.routes)}
-      <Route path="/home" render={() => (<HomePage pageReviews={props.pageReviews} />)} exact={ true } />
-      <Route path="/login" component={ LoginPage } exact={ true } />
-      <Route render={() => (<HomePage pageReviews={props.pageReviews} />)} />
-    </Switch>
-);
+class AppRoutes extends Component {
+  static propTypes = {
+    routes: PropTypes.arrayOf(PropTypes.object),
+  }
 
-AppRoutes.propTypes = {
-  routes: PropTypes.array,
-  pageReviews: PropTypes.array,
+  static defaultProps = {
+    routes: [],
+  }
+
+  static contextType = ConfigContext;
+
+  constructor(props) {
+    super(props)
+    this.getNoMatchComponent = this.getNoMatchComponent.bind(this)
+  }
+
+  getNoMatchComponent() {
+    const { config } = this.context
+    if (isNil(config.noMatchComponent)) {
+      return NoMatchComponent
+    }
+    return config.noMatchComponent
+  }
+
+  render() {
+    const { routes } = this.props
+    return (
+      <Switch>
+        {createRoutes(routes)}
+        <Route component={this.getNoMatchComponent()} />
+      </Switch>
+    )
+  }
 }
 
-export default AppRoutes;
+export default AppRoutes

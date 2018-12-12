@@ -26,7 +26,7 @@ var withMetaReaction = function withMetaReaction(action) {
 
 
 var matches = function matches(matcher, action) {
-  if (typeof matcher === "function") {
+  if (typeof matcher === 'function') {
     return matcher(action);
   }
 
@@ -67,8 +67,8 @@ var reactions = function reactions(mappings) {
 
         if (reactionFns.length) {
           reactionFns.forEach(function (reactionFn) {
-            var reactions = [reactionFn(action)];
-            reactions.forEach(function (reaction) {
+            var reactionsForDispatch = [reactionFn(action)];
+            reactionsForDispatch.forEach(function (reaction) {
               if (reaction) {
                 store.dispatch(withMetaReaction(reaction));
               }

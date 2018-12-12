@@ -34,4 +34,4 @@ const storeConnect = connect(
   })
 );
 
-export default withAuthentication(storeConnect(HomePage), { onFalse: "login" });
+export default withAuthentication(HomePage, { onFalse: "login" });

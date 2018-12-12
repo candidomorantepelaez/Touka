@@ -9,15 +9,13 @@ var _ramda = require("ramda");
 
 var _redux = require("redux");
 
-// the menus
 var getMenu = function getMenu(modules) {
   return (0, _ramda.chain)(function (obj) {
     return obj.menu;
   }, (0, _ramda.filter)(function (obj) {
     return (0, _ramda.isNil)(obj.menu) === false;
   }, modules));
-}; // the messages
-
+};
 
 exports.getMenu = getMenu;
 
@@ -27,8 +25,7 @@ var mergeLang = function mergeLang(lang, modules) {
   }, (0, _ramda.filter)(function (obj) {
     return (0, _ramda.isNil)(obj.messages) === false;
   }, modules)));
-}; // the languages
-
+};
 
 exports.mergeLang = mergeLang;
 
@@ -36,23 +33,17 @@ var getMessages = function getMessages(languages, modules) {
   return (0, _ramda.mergeAll)((0, _ramda.map)(function (lang) {
     return (0, _ramda.objOf)(lang)(mergeLang(lang, modules));
   }, languages));
-}; // the routes
-
+};
 
 exports.getMessages = getMessages;
 
 var getRoutes = function getRoutes(modules) {
-  var onlyWithRoutes = (0, _ramda.filter)(function (obj) {
-    return (0, _ramda.isNil)(obj.routes) === false;
-  }, modules);
-  console.log(onlyWithRoutes);
-  var result = (0, _ramda.chain)(function (obj) {
+  return (0, _ramda.chain)(function (obj) {
     return obj.routes;
-  }, onlyWithRoutes);
-  console.log(result);
-  return result;
-}; // the new reducers
-
+  }, (0, _ramda.filter)(function (obj) {
+    return (0, _ramda.isNil)(obj.routes) === false;
+  }, modules));
+};
 
 exports.getRoutes = getRoutes;
 
@@ -62,8 +53,7 @@ var getReducers = function getReducers(modules) {
   }, (0, _ramda.filter)(function (obj) {
     return (0, _ramda.isNil)(obj.reducer) === false;
   }, modules))));
-}; // the reactions
-
+};
 
 exports.getReducers = getReducers;
 
@@ -73,8 +63,7 @@ var getReactions = function getReactions(modules) {
   }, (0, _ramda.filter)(function (obj) {
     return (0, _ramda.isNil)(obj.reactions) === false;
   }, modules));
-}; // the menus
-
+};
 
 exports.getReactions = getReactions;
 

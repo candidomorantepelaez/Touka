@@ -9,30 +9,6 @@
     "type": "git",
     "url": "git://github.com/candidomorantepelaez/touka.git"
   },
-  "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "bluebird": "^3.5.3",
-    "fredux": "^2.0.1",
-    "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.3.1",
-    "npm": "^6.4.1",
-    "prop-types": "^15.6.2",
-    "query-string": "^6.2.0",
-    "ramda": "^0.26.0",
-    "react": "^16.6.3",
-    "react-cookies": "^0.1.0",
-    "react-dom": "^16.6.3",
-    "react-icons": "^3.2.2",
-    "react-intl": "^2.7.2",
-    "react-redux": "^5.1.1",
-    "react-responsive-modal": "^3.5.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.1",
-    "redux": "^4.0.1",
-    "redux-immutable-state-invariant": "^2.1.0",
-    "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.3.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "startwithapi": "react-scripts start & npm run apiserver",
@@ -42,22 +18,43 @@
     "eject": "react-scripts eject",
     "apiserver": "node src/core/server/index.js"
   },
+  "peerDependencies": {
+    "react": "^16.6.3"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "fredux": "^2.0.1",
+    "history": "^4.7.2",
+    "isomorphic-fetch": "^2.2.1",
+    "prop-types": "^15.6.2",
+    "query-string": "^6.2.0",
+    "ramda": "^0.26.0",
+    "react-cookies": "^0.1.0",
+    "react-dom": "^16.6.3",
+    "react-intl": "^2.7.2",
+    "react-redux": "^5.1.1",
+    "react-responsive-modal": "^3.5.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-module-resolver": "^3.1.1",
-    "css-loader": "^1.0.1",
-    "html-webpack-plugin": "^3.2.0",
-    "json-loader": "^0.5.7",
-    "proptypes": "^1.1.0",
-    "react": "^16.6.3",
-    "redux-devtools-extension": "^2.13.7",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-watch": "^4.0.2",
+    "redux-devtools-extension": "^2.13.7"
   }
 }

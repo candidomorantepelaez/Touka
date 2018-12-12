@@ -11,15 +11,13 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _bluebird = _interopRequireDefault(require("bluebird"));
-
 var _ramda = require("ramda");
 
 var _application = _interopRequireDefault(require("./application/application"));
 
-var _moduleApp = _interopRequireDefault(require("./module/module-app"));
+var _module = _interopRequireDefault(require("./app/module"));
 
-var _module = require("./module");
+var _module2 = require("./module");
 
 var _store = _interopRequireDefault(require("./store"));
 
@@ -27,51 +25,41 @@ var _history = _interopRequireDefault(require("./routes/history"));
 
 var _i = require("./i18");
 
+var _configContext = _interopRequireDefault(require("./contexts/config-context"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* global document */
 var render = function render(component) {
-  var node = document.getElementById("root");
+  var node = document.getElementById('root');
 
   _reactDom.default.render(component, node);
 };
 
-var prevConfig = function prevConfig() {
-  window.Promise = _bluebird.default;
-
-  _bluebird.default.config({
-    warnings: false
-  });
-
-  window.addEventListener("unhandlerrejection", function (error) {
-    error.preventDefault();
-
-    if (process.env.NODE_ENV !== "production") {
-      console.warn("Unhandler promise rejection warning.", error.detail);
-    }
-  });
-};
-
-var createAppModules = function createAppModules(config) {
+var insertAppModule = function insertAppModule(config) {
   if ((0, _ramda.isNil)(config) || (0, _ramda.isNil)(config.modules) || !(0, _ramda.is)(Array, config.modules)) {
-    return _moduleApp.default;
+    return (0, _ramda.merge)(config, {
+      modules: _module.default
+    });
   }
 
-  return (0, _ramda.insert)(0, _moduleApp.default, config.modules);
+  return (0, _ramda.merge)(config, (0, _ramda.append)(_module.default, config.modules));
 };
 
 var renderApplication = function renderApplication(config) {
-  prevConfig();
-  (0, _i.addLocale)();
-  var modules = createAppModules(config);
-  render(_react.default.createElement(_application.default, {
-    store: (0, _store.default)(modules),
+  (0, _i.initDefaultLocales)();
+  var configWithAppModule = insertAppModule(config);
+  render(_react.default.createElement(_configContext.default.Provider, {
+    value: configWithAppModule
+  }, _react.default.createElement(_application.default, {
+    store: (0, _store.default)(configWithAppModule.modules),
     language: config.defaultLanguage,
-    messages: (0, _i.messages)(config.languages, modules)[config.defaultLanguage],
+    messages: (0, _i.messages)(config.languages, configWithAppModule.modules)[config.defaultLanguage],
     history: _history.default,
-    menu: (0, _module.getMenu)(modules),
-    routes: (0, _module.getRoutes)(modules),
-    pageReviews: (0, _module.getPageRewiew)(modules)
-  }));
+    menu: (0, _module2.getMenu)(configWithAppModule.modules),
+    routes: (0, _module2.getRoutes)(configWithAppModule.modules),
+    pageReviews: (0, _module2.getPageRewiew)(configWithAppModule.modules)
+  })));
 };
 
 var _default = renderApplication;

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.messages = exports.addLocale = void 0;
+exports.messages = exports.initDefaultLocales = void 0;
 
 var _reactIntl = require("react-intl");
 
@@ -23,11 +23,11 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-var addLocale = function addLocale() {
+var initDefaultLocales = function initDefaultLocales() {
   return (0, _reactIntl.addLocaleData)(_toConsumableArray(_en.default).concat(_toConsumableArray(_es.default)));
 };
 
-exports.addLocale = addLocale;
+exports.initDefaultLocales = initDefaultLocales;
 
 var messages = function messages(languages, modules) {
   return (0, _module.getMessages)(languages, modules);
