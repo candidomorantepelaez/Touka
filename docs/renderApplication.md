@@ -1,4 +1,4 @@
-<h1>Render Aplication</h1>
-<p>Esta función es el punto de entrada del framework.</p>
+## Render Aplication
+Esta función es el punto de entrada del framework.
 
-<a href="/">Volver</a>
+[Volver](README.md)
