@@ -1,57 +1,55 @@
-/*
-* hoc function for including param in the action
-*/
-const withMetaReaction = action => ({
-  ...action,
-  meta: {
-    ...action.meta,
-    __AMIGA_REACTION__: true,
-  },
-})
+import {
+  merge, filter, map, isEmpty, forEach, is,
+} from 'ramda'
 
-/*
- * function for check if the action match with the math in the object.
- * this matchs can be string, regExp or functions.
- */
-export const matches = (matcher, action) => {
-  if (typeof matcher === 'function') {
+
+const match = (matcher, action) => {
+  if (is(Function, matcher)) {
     return matcher(action)
   }
 
-  if (matcher.test) {
+  if (is(Function, matcher.test)) {
     return matcher.test(action.type)
   }
 
   return matcher === action.type
 }
 
-/*
- *middleware for reactions.
- */
-const reactions = (mappings) => {
-  const reactionMatcher = action => mappings.filter(({ match }) => matches(match, action)).map(({ reaction }) => reaction)
+const markActionToReaction = action => merge(action, { meta: merge(action.meta, { isReaction: true }) })
 
-  return store => next => (action) => {
-    next(action)
+const getOnlyReactions = reactions => map(reaction => reaction.reaction, reactions)
 
-    // Dont infinite reactions
-    if (action.meta && action.meta.reaction) {
-      return
-    }
+const filterReactionsForThisAction = (action, objReactions) => filter(reaction => match(reaction.match, action), objReactions)
 
-    const reactionFns = reactionMatcher(action)
+const isReaction = action => (action.meta && action.meta.isReaction === true)
 
-    if (reactionFns.length) {
-      reactionFns.forEach((reactionFn) => {
-        const reactionsForDispatch = [reactionFn(action)]
-        reactionsForDispatch.forEach((reaction) => {
-          if (reaction) {
-            store.dispatch(withMetaReaction(reaction))
-          }
-        })
-      })
-    }
+const dispatchAction = store => action => store.dispatch(markActionToReaction(action))
+
+const handleArrayOfReactionsToDispatch = (reactions, store) => forEach(reaction => dispatchAction(store)(reaction), reactions)
+
+const handleReactionForDispatch = (reactions, store) => {
+  if (is(Array, reactions)) {
+    handleArrayOfReactionsToDispatch(reactions, store)
   }
+  if (is(Object, reactions) && !isEmpty(reactions)) {
+    dispatchAction(store)(reactions)
+  }
+}
+
+const reactions = objReactions => store => next => (action) => {
+  next(action)
+
+  if (isReaction(action)) {
+    return
+  }
+
+  const reactionsToDispatch = getOnlyReactions(filterReactionsForThisAction(action, objReactions))
+
+  if (isEmpty(reactionsToDispatch)) {
+    return
+  }
+
+  forEach(reaction => handleReactionForDispatch(reaction(action), store), reactionsToDispatch)
 }
 
 export default reactions

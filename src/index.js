@@ -30,7 +30,7 @@ const insertAppModule = (config) => {
   return config
 }
 
-const renderApplication = (config) => {
+const createAppTouka = (config) => {
   initDefaultLocales()
 
   const configWithAppModule = insertAppModule(config)
@@ -50,4 +50,4 @@ const renderApplication = (config) => {
   )
 }
 
-export default renderApplication
+export default createAppTouka

@@ -1,8 +1,8 @@
-import renderApplication from "touka";
+import createAppTouka from "touka";
 import clients from "./clients/module";
 import ClientFile from "./clients/pages/create-client-page";
 
-renderApplication({
+createAppTouka({
   defaultLanguage: "es",
   languages: ["es", "en"],
   modules: [
