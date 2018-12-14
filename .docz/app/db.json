@@ -1,0 +1,40 @@
+{
+  "config": {
+    "title": "Touka",
+    "description": "Framework open source foe react app",
+    "menu": [],
+    "ordering": "descending",
+    "version": "0.1.11",
+    "repository": "https://github.com/candidomorantepelaez/touka",
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {},
+    "src": "./",
+    "dest": "./docs",
+    "base": "/touka/"
+  },
+  "entries": {
+    "index.mdx": {
+      "id": "91149a4106ab27ef746308b41227aca8",
+      "filepath": "index.mdx",
+      "link": "https://github.com/candidomorantepelaez/touka/edit/master/index.mdx",
+      "slug": "index",
+      "route": "/index",
+      "name": "Index",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 2,
+          "slug": "instalacion",
+          "value": "instalacion"
+        },
+        {
+          "depth": 2,
+          "slug": "uso",
+          "value": "uso"
+        }
+      ]
+    }
+  }
+}

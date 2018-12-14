@@ -16,7 +16,9 @@
     "transpile": "babel src -d core",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "apiserver": "node src/core/server/index.js"
+    "apiserver": "node src/core/server/index.js",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "peerDependencies": {
     "react": "^16.6.3"
@@ -49,6 +51,8 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-module-resolver": "^3.1.1",
+    "docz": "^0.12.17",
+    "docz-theme-default": "^0.12.17",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
