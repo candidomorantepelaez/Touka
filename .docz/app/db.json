@@ -16,7 +16,7 @@
     },
     "src": "./docsDev",
     "dest": "./docs",
-    "base": "/touka/docs/"
+    "base": "/touka/"
   },
   "entries": {
     "index.mdx": {
