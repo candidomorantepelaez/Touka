@@ -1,13 +1,13 @@
 {
-  "app.js": "/touka/static/js/app.b4a96c33.js",
-  "app.js.map": "/touka/static/js/app.b27aa3784e9d256920e4.js.map",
+  "app.js": "/touka/static/js/app.59ad0e90.js",
+  "app.js.map": "/touka/static/js/app.ad84ec9cc420e60aad77.js.map",
   "index.js": "/touka/static/js/index.9ad07f4d.js",
-  "index.js.map": "/touka/static/js/index.b27aa3784e9d256920e4.js.map",
-  "runtime~app.js": "/touka/static/js/runtime~app.b27aa3784e9d256920e4.js",
-  "runtime~app.js.map": "/touka/static/js/runtime~app.b27aa3784e9d256920e4.js.map",
+  "index.js.map": "/touka/static/js/index.ad84ec9cc420e60aad77.js.map",
+  "runtime~app.js": "/touka/static/js/runtime~app.ad84ec9cc420e60aad77.js",
+  "runtime~app.js.map": "/touka/static/js/runtime~app.ad84ec9cc420e60aad77.js.map",
   "vendors.js": "/touka/static/js/vendors.d2b80ff4.js",
-  "vendors.js.map": "/touka/static/js/vendors.b27aa3784e9d256920e4.js.map",
+  "vendors.js.map": "/touka/static/js/vendors.ad84ec9cc420e60aad77.js.map",
   "static/js/4.100a0ba7.js": "/touka/static/js/4.100a0ba7.js",
-  "static/js/4.b27aa3784e9d256920e4.js.map": "/touka/static/js/4.b27aa3784e9d256920e4.js.map",
+  "static/js/4.ad84ec9cc420e60aad77.js.map": "/touka/static/js/4.ad84ec9cc420e60aad77.js.map",
   "index.html": "/touka/index.html"
 }
