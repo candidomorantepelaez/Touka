@@ -1,7 +1,7 @@
 export default {
   src: './docsDev',
   dest: './docs',
-  base: '/touka/',
+  base: '/touka/docs/',
   title: 'Touka',
   description: 'Framework open source foe react app',
   themeConfig: {
