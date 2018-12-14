@@ -21,7 +21,7 @@
   "entries": {
     "index.mdx": {
       "name": "Touka",
-      "route": "/touka",
+      "route": "/",
       "id": "35af6c935e95160fd8e3b8161dc63ff1",
       "filepath": "index.mdx",
       "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/index.mdx",
