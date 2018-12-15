@@ -19,6 +19,40 @@
     "base": "/touka/"
   },
   "entries": {
+    "create-app-touka.mdx": {
+      "name": "CreateAppTouka",
+      "route": "/create-app-touka",
+      "id": "e24996dd8b61debc882213f772f26b26",
+      "filepath": "create-app-touka.mdx",
+      "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/create-app-touka.mdx",
+      "slug": "create-app-touka",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 2,
+          "slug": "createapptouka",
+          "value": "CreateAppTouka"
+        }
+      ]
+    },
+    "gestion-react.mdx": {
+      "name": "Gestionando React",
+      "route": "/gestion-react",
+      "id": "c0a421942f75e439fc537ac64b86164b",
+      "filepath": "gestion-react.mdx",
+      "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/gestion-react.mdx",
+      "slug": "gestion-react",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 2,
+          "slug": "gestionando-react",
+          "value": "Gestionando React"
+        }
+      ]
+    },
     "index.mdx": {
       "name": "Touka",
       "route": "/",
@@ -30,9 +64,14 @@
       "menu": null,
       "headings": [
         {
+          "depth": 1,
+          "slug": "bienvenidos-a-touka",
+          "value": "Bienvenidos a Touka"
+        },
+        {
           "depth": 2,
-          "slug": "instalacion",
-          "value": "instalacion"
+          "slug": "instalacion-versión-alpha-solo-apta-para-pruebas",
+          "value": "instalacion  Versión Alpha, solo apta para pruebas"
         },
         {
           "depth": 2,

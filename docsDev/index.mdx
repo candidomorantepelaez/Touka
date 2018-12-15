@@ -2,20 +2,39 @@
 name: Touka
 route: '/'
 ---
-Touka es un framework open source para la construcción de aplicaciones con react.
 
-## instalacion
+# Bienvenidos a Touka
+
+Touka es un framework open source para la construcción de aplicaciones web del lado del navegador. Esta escrito en javascript usando las librerias react y redux.
+
+Touka dispone de todo lo necesario para la creación de una aplicacion, de tipo React, ya configurado y preparado para usarlo.
+
+Touka te proporciona:
+
+- [Gestion de React](/gestion-react)
+- Gestion de redux
+- Gestion de rutas
+- Gestion de peticiones http
+- Gestion de autenticacion
+- Gestion de i18n
+- Componentes Basicos
+
+## instalacion **Versión Alpha, solo apta para pruebas**
+
 ```bash
 npm install touka
+```
+o con yarn:
 
-o
-
+```bash
 yarn add touka
 ```
 
 ## uso
-En una applicacion react, puede ser una creada con 'create-react-app', simplemente importamos la funcion [createAppTouka](docs/renderApplication.md) de touka, y le pasamos el objeto de configuración de la app.
-En este objeto configuramos toda nuestra aplicación, y además, declaramos los modulos de los que compone nuestra aplicación.
+Para usar Touka necesitamos una aplicación react, puede ser una creada con el cli de react 'create-react-app'.
+
+Una vez que tenemos nuestra aplicacion react operativa, simplemente importamos la funcion [createAppTouka](docs/renderApplication.md) de touka, y le pasamos un objeto con la configuración de la app.
+
 ```js
 import createAppTouka from 'touka';
 import clients from './clients/module';
