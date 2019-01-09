@@ -5,4 +5,6 @@ export const imports = {
     import(/* webpackPrefetch: true, webpackChunkName: "gestion-react" */ 'gestion-react.mdx'),
   'index.mdx': () =>
     import(/* webpackPrefetch: true, webpackChunkName: "index" */ 'index.mdx'),
+  'modules.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "modules" */ 'modules.mdx'),
 }

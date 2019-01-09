@@ -11,25 +11,36 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRedux = require("react-redux");
 
-var _alertReducer = require("../../reducers/alert-reducer");
+var _ramda = require("ramda");
+
+var _alertReducer = require("../../app/reducers/alert-reducer");
 
 var _alert = _interopRequireDefault(require("./alert"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AlertProvider = function AlertProvider(props) {
-  return props.alerts.length > 0 ? _react.default.createElement("div", null, props.alerts.map(function (alert, key) {
-    return _react.default.createElement(_alert.default, {
-      type: alert.type,
-      id: key,
-      message: alert.message,
-      key: key
-    });
-  })) : null;
+var AlertProvider = function AlertProvider(_ref) {
+  var alerts = _ref.alerts;
+
+  if (alerts.length > 0) {
+    return _react.default.createElement("div", null, (0, _ramda.addIndex)(_ramda.map)(function (alert, key) {
+      return _react.default.createElement(_alert.default, {
+        type: alert.type,
+        id: key,
+        message: alert.message,
+        key: key
+      });
+    }, alerts));
+  }
+
+  return null;
 };
 
 AlertProvider.propTypes = {
-  alerts: _propTypes.default.array
+  alerts: _propTypes.default.arrayOf(_propTypes.default.object)
+};
+AlertProvider.defaultProps = {
+  alerts: []
 };
 var storeConnect = (0, _reactRedux.connect)(function (state) {
   return {

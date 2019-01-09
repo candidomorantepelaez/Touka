@@ -1,6 +1,7 @@
 ---
 name: Touka
 route: '/'
+order: 1
 ---
 
 # Bienvenidos a Touka
@@ -19,7 +20,7 @@ Touka te proporciona:
 - Gestion de i18n
 - Componentes Basicos
 
-## instalacion **Versión Alpha, solo apta para pruebas**
+## instalacion **Versión Alfa, solo apta para pruebas**
 
 ```bash
 npm install touka
@@ -33,21 +34,15 @@ yarn add touka
 ## uso
 Para usar Touka necesitamos una aplicación react, puede ser una creada con el cli de react 'create-react-app'.
 
-Una vez que tenemos nuestra aplicacion react operativa, simplemente importamos la funcion [createAppTouka](docs/renderApplication.md) de touka, y le pasamos un objeto con la configuración de la app.
+Una vez que tenemos nuestra aplicacion react operativa, simplemente importamos la funcion [createAppTouka](/create-app-touka.md) de touka, y le pasamos un objeto con la configuración de la app.
 
 ```js
 import createAppTouka from 'touka';
 import clients from './clients/module';
-import ClientFile from './clients/pages/create-client-page';
 
 createAppTouka({
-  defaultLanguage: "es",
-  languages: ["es", "en"],
   modules: [
     clients
   ],
-  config: {
-    noMatchComponent: ClientFile
-  }
 });
 ```

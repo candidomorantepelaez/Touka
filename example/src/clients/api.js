@@ -1,5 +1,5 @@
 import { get, post, put, del} from "touka/core/api/index";
-import { apiPath } from "touka/core/constans";
+import { apiPath } from "touka/core/config/get-global-data";
 
 const saveClient = (cliente) => new Promise((resolve, reject) => {
   post(`${apiPath}/client`, { body: cliente })

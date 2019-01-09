@@ -1,21 +1,22 @@
-import { PROMISE_CALL } from "fredux";
-import api from "api/login-api";
+import { PROMISE_CALL } from 'fredux'
+import api from 'api/login-api'
 
-export const ON_LOGIN = "core/credentials";
-export const ON_LOGOUT = "core/logout";
-export const ON_SAVE_USER_FROM_COOKIE = "core/saveCurrentUser";
 
-export const credentials = value => ({
+export const ON_LOGIN = 'core/login'
+export const ON_LOGOUT = 'core/logout'
+export const ON_SAVE_USER_FROM_COOKIE = 'core/saveCurrentUser'
+
+export const login = value => ({
   type: ON_LOGIN,
-  [PROMISE_CALL]: () => api.credentials(value),
-});
+  [PROMISE_CALL]: () => api.login(value),
+})
 
-export const logout = value => ({
+export const logout = () => ({
   type: ON_LOGOUT,
   [PROMISE_CALL]: () => api.logout(),
-});
+})
 
 export const saveCurrentUser = value => ({
   type: ON_SAVE_USER_FROM_COOKIE,
   payload: value,
-});
+})

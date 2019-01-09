@@ -30,9 +30,54 @@
       "menu": null,
       "headings": [
         {
-          "depth": 2,
+          "depth": 1,
           "slug": "createapptouka",
           "value": "CreateAppTouka"
+        },
+        {
+          "depth": 2,
+          "slug": "apibasepath-string",
+          "value": "apibasePath: |string|,"
+        },
+        {
+          "depth": 2,
+          "slug": "appbasepath-string",
+          "value": "appBasePath: |string|,"
+        },
+        {
+          "depth": 2,
+          "slug": "apiloginpath-string",
+          "value": "apiLoginPath: |string|,"
+        },
+        {
+          "depth": 2,
+          "slug": "apilogoutpath-string",
+          "value": "apiLogoutPath: |string|,"
+        },
+        {
+          "depth": 2,
+          "slug": "defaultlanguage-string",
+          "value": "defaultLanguage: |String|,"
+        },
+        {
+          "depth": 2,
+          "slug": "languages-array",
+          "value": "languages: |Array|,"
+        },
+        {
+          "depth": 2,
+          "slug": "nomatchcomponent-reactcomponent",
+          "value": "noMatchComponent: |ReactComponent|,"
+        },
+        {
+          "depth": 2,
+          "slug": "menucomponent-reactcomponent",
+          "value": "menuComponent: |ReactComponent|,"
+        },
+        {
+          "depth": 2,
+          "slug": "modules",
+          "value": "Modules:"
         }
       ]
     },
@@ -47,20 +92,45 @@
       "menu": null,
       "headings": [
         {
-          "depth": 2,
+          "depth": 1,
           "slug": "gestionando-react",
           "value": "Gestionando React"
+        },
+        {
+          "depth": 2,
+          "slug": "providers-que-crea-touka",
+          "value": "Providers que crea Touka."
+        },
+        {
+          "depth": 2,
+          "slug": "configcontextprovider--",
+          "value": "ConfigContext.Provider .-"
+        },
+        {
+          "depth": 2,
+          "slug": "storeprovider--",
+          "value": "StoreProvider .-"
+        },
+        {
+          "depth": 2,
+          "slug": "intlprovider--",
+          "value": "IntlProvider .-"
+        },
+        {
+          "depth": 2,
+          "slug": "routerprovider--",
+          "value": "RouterProvider .-"
         }
       ]
     },
     "index.mdx": {
       "name": "Touka",
       "route": "/",
+      "order": 1,
       "id": "35af6c935e95160fd8e3b8161dc63ff1",
       "filepath": "index.mdx",
       "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/index.mdx",
       "slug": "index",
-      "order": 0,
       "menu": null,
       "headings": [
         {
@@ -70,8 +140,8 @@
         },
         {
           "depth": 2,
-          "slug": "instalacion-versión-alpha-solo-apta-para-pruebas",
-          "value": "instalacion  Versión Alpha, solo apta para pruebas"
+          "slug": "instalacion-versión-alfa-solo-apta-para-pruebas",
+          "value": "instalacion  Versión Alfa, solo apta para pruebas"
         },
         {
           "depth": 2,
@@ -79,6 +149,17 @@
           "value": "uso"
         }
       ]
+    },
+    "modules.mdx": {
+      "name": "Modules",
+      "route": "/modules",
+      "id": "4e40f1db41356f59a3d5bdda1f8dccab",
+      "filepath": "modules.mdx",
+      "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/modules.mdx",
+      "slug": "modules",
+      "order": 0,
+      "menu": null,
+      "headings": []
     }
   }
 }

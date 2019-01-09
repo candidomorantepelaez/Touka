@@ -7,9 +7,9 @@ exports.default = void 0;
 
 var _redux = require("redux");
 
-var _alertReducer = _interopRequireDefault(require("../../reducers/alert-reducer"));
+var _alertReducer = _interopRequireDefault(require("./alert-reducer"));
 
-var _loginReducer = _interopRequireDefault(require("../../reducers/login-reducer"));
+var _loginReducer = _interopRequireDefault(require("./login-reducer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

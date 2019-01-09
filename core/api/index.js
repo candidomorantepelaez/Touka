@@ -5,23 +5,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.del = exports.put = exports.post = exports.get = void 0;
 
-var _customFreduxApiUtils = require("./custom-fredux-api-utils");
+var _freduxApiUtils = require("fredux-api-utils");
 
-var _history = _interopRequireDefault(require("../routes/history"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _routes = require("../routes");
 
 var handlerResponse = function handlerResponse(res) {
   return new Promise(function (resolve, reject) {
-    res.then(function (res) {
-      if (res.status === 200) {
+    res.then(function (result) {
+      if (result.status >= 200 && result.status < 300) {
         resolve(res);
       }
 
-      if (res.status === 401) {
+      if (result.status === 401) {
         reject(res);
 
-        _history.default.push("/login");
+        _routes.history.push('/touka-no-auth-redirect');
       }
 
       reject(res);
@@ -30,25 +28,25 @@ var handlerResponse = function handlerResponse(res) {
 };
 
 var get = function get(ruta, options) {
-  return handlerResponse((0, _customFreduxApiUtils.customGet)(ruta, options));
+  return handlerResponse((0, _freduxApiUtils.get)(ruta, options));
 };
 
 exports.get = get;
 
 var post = function post(ruta, options) {
-  return handlerResponse((0, _customFreduxApiUtils.customPost)(ruta, options));
+  return handlerResponse((0, _freduxApiUtils.post)(ruta, options));
 };
 
 exports.post = post;
 
 var put = function put(ruta, options) {
-  return handlerResponse((0, _customFreduxApiUtils.customPut)(ruta, options));
+  return handlerResponse((0, _freduxApiUtils.put)(ruta, options));
 };
 
 exports.put = put;
 
 var del = function del(ruta, options) {
-  return handlerResponse((0, _customFreduxApiUtils.customDel)(ruta, options));
+  return handlerResponse((0, _freduxApiUtils.del)(ruta, options));
 };
 
 exports.del = del;

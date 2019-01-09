@@ -1,53 +1,32 @@
-/* global document */
 import 'babel-polyfill'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {
-  isNil, is, append, merge, find,
-} from 'ramda'
-import Application from 'application/application'
-import moduleApp from 'app/module'
-import { getMenu, getRoutes, getPageRewiew } from 'module'
+import { merge, defaultTo } from 'ramda'
+import initialConfig from 'config'
+import { mergeModules } from 'functions'
+import { render, createProviders } from 'application'
+import { getMenu, getRoutes, getPageRewiew } from 'modules'
 import getStore from 'store'
-import history from 'routes/history'
-import { initDefaultLocales, messages } from 'i18'
-import ConfigContext from 'contexts/config-context'
+import { messages, initDefaultLocales } from 'i18n'
+import setGlobalData from 'config/set-global-data'
 
 
-const render = (component) => {
-  const node = document.getElementById('root')
-  ReactDOM.render(component, node)
-}
+const createAppTouka = (userConfig = {}) => {
+  const config = merge(defaultTo({})(userConfig.config), initialConfig.config)
 
-const insertAppModule = (config) => {
-  if (isNil(config) || isNil(config.modules) || !is(Array, config.modules)) {
-    return merge(config, { modules: moduleApp })
+  const modules = mergeModules(userConfig.modules, initialConfig.modules)
+
+  const moduleConfig = {
+    store: getStore(modules),
+    messages: messages(config.languages, modules)[config.defaultLanguage],
+    menu: getMenu(modules),
+    routes: getRoutes(modules),
+    pageReviews: getPageRewiew(modules),
   }
-  const coreModule = find(module => module.key === 'core', config.module)
-  if (isNil(coreModule)) {
-    return merge(config, append(moduleApp, config.modules))
-  }
-  return config
-}
 
-const createAppTouka = (config) => {
-  initDefaultLocales()
+  initDefaultLocales(config.languages)
 
-  const configWithAppModule = insertAppModule(config)
+  setGlobalData(config)
 
-  render(
-    <ConfigContext.Provider value={configWithAppModule}>
-      <Application
-        store={getStore(configWithAppModule.modules)}
-        language={config.defaultLanguage}
-        messages={messages(config.languages, configWithAppModule.modules)[config.defaultLanguage]}
-        history={history}
-        menu={getMenu(configWithAppModule.modules)}
-        routes={getRoutes(configWithAppModule.modules)}
-        pageReviews={getPageRewiew(configWithAppModule.modules)}
-      />
-    </ConfigContext.Provider>
-  )
+  render(createProviders(merge(config, moduleConfig)))
 }
 
 export default createAppTouka

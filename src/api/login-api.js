@@ -1,20 +1,20 @@
 import { post, get } from 'api'
-import { apiPath, loginPath, logoutPath } from 'constans'
+import globalData from 'config/get-global-data'
 
 
-const credentials = value => new Promise((resolve, reject) => {
-  post(`${apiPath}${loginPath}`, { body: value })
+const login = value => new Promise((resolve, reject) => {
+  post(`${globalData.apiPath}${globalData.loginPath}`, { body: value })
     .then(res => res.json().then(data => resolve(data)))
     .catch(res => reject(res))
 })
 
 const logout = () => new Promise((resolve, reject) => {
-  get(`${apiPath}${logoutPath}`)
+  get(`${globalData.apiPath}${globalData.logoutPath}`)
     .then(res => res.json().then(data => resolve(data)))
     .catch(res => reject(res))
 })
 
 export default {
-  credentials,
+  login,
   logout,
 }

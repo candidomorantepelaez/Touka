@@ -11,14 +11,14 @@ var _redux = require("redux");
 
 var _reduxDevtoolsExtension = require("redux-devtools-extension");
 
-var _reactions = _interopRequireDefault(require("../reactions/reactions"));
+var _reactions = _interopRequireDefault(require("../reactions"));
 
-var _module = require("../module");
+var _modules = require("../modules");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var getStore = function getStore(modules) {
-  return (0, _redux.createStore)((0, _module.getReducers)(modules), (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_fredux.promiseActionMiddleware, (0, _reactions.default)((0, _module.getReactions)(modules)))));
+  return (0, _redux.createStore)((0, _modules.getReducers)(modules), (0, _reduxDevtoolsExtension.composeWithDevTools)((0, _redux.applyMiddleware)(_fredux.promiseActionMiddleware, (0, _reactions.default)((0, _modules.getReactions)(modules)))));
 };
 
 var _default = getStore;

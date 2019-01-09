@@ -1,29 +1,35 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getAlerts } from "reducers/alert-reducer";
-import Alert from "components/alerts/alert";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { addIndex, map } from 'ramda'
+import { getAlerts } from 'app/reducers/alert-reducer'
+import Alert from 'components/alerts/alert'
 
-const AlertProvider = props => (
-  (props.alerts.length > 0) ?
-    <div>
-      {props.alerts.map((alert, key) =>
-        <Alert type={alert.type} id={key} message={alert.message} key={key} />
-      )}
-    </div>
-    :
-    null
-);
+
+const AlertProvider = ({ alerts }) => {
+  if (alerts.length > 0) {
+    return (
+      <div>
+        {addIndex(map)((alert, key) => <Alert type={alert.type} id={key} message={alert.message} key={key} />, alerts)}
+      </div>
+    )
+  }
+  return null
+}
 
 AlertProvider.propTypes = {
-  alerts: PropTypes.array,
-};
+  alerts: PropTypes.arrayOf(PropTypes.object),
+}
+
+AlertProvider.defaultProps = {
+  alerts: [],
+}
 
 const storeConnect = connect(
-  (state) => ({
+  state => ({
     alerts: getAlerts(state),
   }),
   () => ({}),
-);
+)
 
-export default storeConnect(AlertProvider);
+export default storeConnect(AlertProvider)

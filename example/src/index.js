@@ -1,7 +1,9 @@
 import createAppTouka from "touka";
-import clients from "./clients/module";
-import ClientFile from "./clients/pages/create-client-page";
+// import clients from "./clients/module";
+// import ClientFile from "./clients/pages/create-client-page";
 
+createAppTouka();
+/*
 createAppTouka({
   defaultLanguage: "es",
   languages: ["es", "en"],
@@ -12,3 +14,4 @@ createAppTouka({
     noMatchComponent: ClientFile
   }
 });
+*/

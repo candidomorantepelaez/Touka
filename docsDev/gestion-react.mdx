@@ -3,6 +3,113 @@ name: Gestionando React
 route: '/gestion-react'
 ---
 
-## Gestionando React
+# Gestionando React
 
-Asi lo gestionamos
+Cuando se ejecuta la función [createAppTouka](/create-app-touka) lo primero que gestiona touka relacionado con react, el el crear los providers necesarios para la app.
+
+## Providers que crea Touka.
+
+```js
+<ConfigContext.Provider value={config}>
+    <Provider store={config.store}>
+      <IntlProvider locale={config.defaultLanguage} messages={config.messages}>
+        <Router history={history}>
+          <div>
+            <AlertProvider />
+            { React.React.createElement(config.menuComponent, { menu: config.menu }) }
+            <ToukaRoutes routes={config.routes} pageReviews={config.pageReviews} />
+          </div>
+        </Router>
+      </IntlProvider>
+    </Provider>
+  </ConfigContext.Provider>
+```
+
+## ConfigContext.Provider .-
+Este provider nos proporciona el acceso a la configuración de la aplicacion desde cualquier componente react que este en el arbol de la aplicación.
+Para mas informacion se puede leer la [documentación oficial](https://reactjs.org/docs/context.html) sobre el contexto de react.
+Para acceder al contexto se puede realizar de esta manera:
+
+```js
+...
+import { ConfigContext } from 'contexts'
+...
+
+class ToukaRoutes extends Component {
+    ...
+    static contextType = ConfigContext;
+    ...
+
+    render() {
+        const { config } = this.context
+        return (
+            ...
+        );
+    }
+}
+```
+## StoreProvider .-
+Este provider nos proporciona el acceso al store redux de la aplicación.
+Para mas informacion se puede leer la [documentación oficial de redux](https://es.redux.js.org/docs/basico/uso-con-react.html).
+Para acceder al store tenemos el metodo connect de redux que se puede usar de esta manera:
+
+```js
+...
+import { connect } from 'react-redux'
+...
+
+const LoginPage = () => (
+    ...
+);
+
+const storeConnect = connect(
+  state => ({
+    credentials: getCredentials(state),
+  }),
+  dispatch => ({
+    onLogin: value => dispatch(credentials(value)),
+  })
+)
+
+export default storeConnect(LoginPage)
+
+```
+
+## IntlProvider .-
+Este provider nos proporciona la gestion de la internacionalización de la aplicacion.
+Para mas informacion se puede acceder a la [documentación oficial de i18n](https://github.com/yahoo/react-intl/wiki)
+Para poder usar la internacionalización podemos usar el componente FormattedMessage, que nos obliga a tener el provider ya activo o el objeto intl que se puede injectar con un HOC.
+
+Ejemplo de uso de FormattedMessage:
+```js
+...
+import { FormattedMessage } from 'react-intl'
+...
+
+const Example = () => (
+  <FormattedMessage id={'example.message'} />
+)
+```
+
+Ejemplo de uso del objeto intl:
+```js
+...
+import { injectIntl, intlShape } from 'react-intl'
+...
+
+cons Example = ({ intl }) => (
+    <p>{intl.formatMessage({ id: 'example.message' })}</p>
+)
+
+Example.propTypes = {
+    intl: intlShape.isRequired,
+}
+
+export default injectIntl(Example)
+
+```
+
+## RouterProvider .-
+Este provider nos proporciona la gestión de rutas de la aplicacion.
+Para mas informacion sobre este provider puedes leer la [documentacion oficial de react-router](https://reacttraining.com/react-router/web/guides/quick-start).
+Para su uso tenemos

@@ -7,60 +7,39 @@ exports.default = void 0;
 
 require("babel-polyfill");
 
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
 var _ramda = require("ramda");
 
-var _application = _interopRequireDefault(require("./application/application"));
+var _config = _interopRequireDefault(require("./config"));
 
-var _module = _interopRequireDefault(require("./app/module"));
+var _functions = require("./functions");
 
-var _module2 = require("./module");
+var _application = require("./application");
+
+var _modules = require("./modules");
 
 var _store = _interopRequireDefault(require("./store"));
 
-var _history = _interopRequireDefault(require("./routes/history"));
+var _i18n = require("./i18n");
 
-var _i = require("./i18");
-
-var _configContext = _interopRequireDefault(require("./contexts/config-context"));
+var _setGlobalData = _interopRequireDefault(require("./config/set-global-data"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* global document */
-var render = function render(component) {
-  var node = document.getElementById('root');
-
-  _reactDom.default.render(component, node);
+var createAppTouka = function createAppTouka() {
+  var userConfig = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var config = (0, _ramda.merge)((0, _ramda.defaultTo)({})(userConfig.config), _config.default.config);
+  var modules = (0, _functions.mergeModules)(userConfig.modules, _config.default.modules);
+  var moduleConfig = {
+    store: (0, _store.default)(modules),
+    messages: (0, _i18n.messages)(config.languages, modules)[config.defaultLanguage],
+    menu: (0, _modules.getMenu)(modules),
+    routes: (0, _modules.getRoutes)(modules),
+    pageReviews: (0, _modules.getPageRewiew)(modules)
+  };
+  (0, _i18n.initDefaultLocales)(config.languages);
+  (0, _setGlobalData.default)(config);
+  (0, _application.render)((0, _application.createProviders)((0, _ramda.merge)(config, moduleConfig)));
 };
 
-var insertAppModule = function insertAppModule(config) {
-  if ((0, _ramda.isNil)(config) || (0, _ramda.isNil)(config.modules) || !(0, _ramda.is)(Array, config.modules)) {
-    return (0, _ramda.merge)(config, {
-      modules: _module.default
-    });
-  }
-
-  return (0, _ramda.merge)(config, (0, _ramda.append)(_module.default, config.modules));
-};
-
-var renderApplication = function renderApplication(config) {
-  (0, _i.initDefaultLocales)();
-  var configWithAppModule = insertAppModule(config);
-  render(_react.default.createElement(_configContext.default.Provider, {
-    value: configWithAppModule
-  }, _react.default.createElement(_application.default, {
-    store: (0, _store.default)(configWithAppModule.modules),
-    language: config.defaultLanguage,
-    messages: (0, _i.messages)(config.languages, configWithAppModule.modules)[config.defaultLanguage],
-    history: _history.default,
-    menu: (0, _module2.getMenu)(configWithAppModule.modules),
-    routes: (0, _module2.getRoutes)(configWithAppModule.modules),
-    pageReviews: (0, _module2.getPageRewiew)(configWithAppModule.modules)
-  })));
-};
-
-var _default = renderApplication;
+var _default = createAppTouka;
 exports.default = _default;

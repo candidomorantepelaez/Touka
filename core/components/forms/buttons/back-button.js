@@ -15,6 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var BackButton = function BackButton() {
   return _react.default.createElement("button", {
+    type: "button",
     className: "btn btn-secondary boton-tarjeta",
     onClick: function onClick() {
       return _history.default.goBack();

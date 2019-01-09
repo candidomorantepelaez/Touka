@@ -3,5 +3,55 @@ name: CreateAppTouka
 route: '/create-app-touka'
 ---
 
-## CreateAppTouka
-Esta es la funcion principal.
+# CreateAppTouka
+
+Esta función recibe como parametro el objeto de configuración de touka, crea los providers necesarios y renderiza la aplicación.
+
+Todos los parametros de este objeto tienen un valor por defecto, con lo que se puden omitir.
+En caso de querer configurar algun parametro de manera distinta bastará con definir el valor deseado.
+
+El objeto de configuración por defecto es:
+
+```json
+import appModule from 'app/module'
+import NoMatchComponent from 'components/errors/no-match-component'
+import Menu from 'components/menus/menu-principal'
+
+const initialConfig = {
+  config: {
+    apibasePath: 'http://localhost:8080',
+    appBasePath: '/',
+    apiLoginPath: '/login',
+    apiLogoutPath: '/logout',
+    defaultLanguage: 'es',
+    languages: ['es', 'en'],
+    noMatchComponent: NoMatchComponent,
+    menuComponent: Menu,
+  },
+  modules: [
+    appModule,
+  ],
+}
+```
+
+Tenemos dos partes diferenciadas, una para recibir la configuración y la otra que recibe los modulos que integran la aplicación.
+
+## apibasePath: |string|,
+este atributo define el host del api al que vamos a atacar.
+## appBasePath: |string|,
+este atributo define la base necesaria de nuestra aplicacion.
+## apiLoginPath: |string|,
+este atributo define la ruta a la que mandamos las credenciales para la autenticación.
+## apiLogoutPath: |string|,
+este atributo define la ruta a la que pedimos el cierre de la sesion.
+## defaultLanguage: |String|,
+este atributo define el idioma por defecto de la aplicación. El locale elegido debe estar estre los diponibles en el atributo languages de este mismo objeto.
+## languages: |Array|,
+este atributo recibe un array de strings con los idiomas permitidos en la aplicación.
+## noMatchComponent: |ReactComponent|,
+este atributo define el componente que se mostrará si la ruta especificada en el navegador no dispone de mapeo en las rutas importadas con los modulos.
+## menuComponent: |ReactComponent|,
+este atributio define el componente que se mostrará como menú principal de la apliacación. Este componente recibe los enlaces del menu importadas con los modulos.
+
+## Modules:
+Este atributo recibe un array con los [modulos](/modules) que queremos incluir en nuestra aplicación.

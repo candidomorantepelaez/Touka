@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { isAuthorizated, getReturn } from 'functions/authen'
-import { getCurrentUser } from 'reducers/login-reducer'
+import { isAuthorizated } from 'functions'
+import { getCurrentUser } from 'app/reducers'
 
 
 function withAuthentication(WrappedComponent, options = {}) {
@@ -13,19 +13,18 @@ function withAuthentication(WrappedComponent, options = {}) {
     () => ({})
   )
 
-  return storeConnect(class extends Component {
-    static propTypes = {
-      currentUser: PropTypes.shape({}).isRequired,
+  const ReturnComponent = ({ currentUser }) => {
+    if (isAuthorizated(currentUser, options.role)) {
+      return <WrappedComponent currentUser={currentUser} />
     }
+    return <p>Hola</p>
+  }
 
-    render() {
-      const { currentUser } = this.props
-      if (isAuthorizated(currentUser, options.role)) {
-        return <WrappedComponent currentUser={currentUser} {...this.props} />
-      }
-      return getReturn(options.onFalse)
-    }
-  })
+  ReturnComponent.propTypes = {
+    currentUser: PropTypes.shape({}).isRequired,
+  }
+
+  return storeConnect(ReturnComponent)
 }
 
 export default withAuthentication

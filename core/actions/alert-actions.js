@@ -3,26 +3,26 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.closeAlert = exports.openAlert = exports.CLOSE_ALERT = exports.OPEN_ALERT = void 0;
-var OPEN_ALERT = "core/openAlert";
-exports.OPEN_ALERT = OPEN_ALERT;
-var CLOSE_ALERT = "core/closeAlert";
-exports.CLOSE_ALERT = CLOSE_ALERT;
+exports.closeMessage = exports.openMessage = exports.CLOSE_MESSAGE = exports.OPEN_MESSAGE = void 0;
+var OPEN_MESSAGE = 'core/openMessage';
+exports.OPEN_MESSAGE = OPEN_MESSAGE;
+var CLOSE_MESSAGE = 'core/closeMessage';
+exports.CLOSE_MESSAGE = CLOSE_MESSAGE;
 
-var openAlert = function openAlert(data) {
+var openMessage = function openMessage(data) {
   return {
-    type: OPEN_ALERT,
+    type: OPEN_MESSAGE,
     payload: data
   };
 };
 
-exports.openAlert = openAlert;
+exports.openMessage = openMessage;
 
-var closeAlert = function closeAlert(data) {
+var closeMessage = function closeMessage(data) {
   return {
-    type: CLOSE_ALERT,
+    type: CLOSE_MESSAGE,
     payload: data
   };
 };
 
-exports.closeAlert = closeAlert;
+exports.closeMessage = closeMessage;

@@ -7,11 +7,13 @@ exports.default = void 0;
 
 var _index = require("./index");
 
-var _constans = require("../constans");
+var _getGlobalData = _interopRequireDefault(require("../config/get-global-data"));
 
-var credentials = function credentials(value) {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var login = function login(value) {
   return new Promise(function (resolve, reject) {
-    (0, _index.post)("".concat(_constans.apiPath, "/credentials"), {
+    (0, _index.post)("".concat(_getGlobalData.default.apiPath).concat(_getGlobalData.default.loginPath), {
       body: value
     }).then(function (res) {
       return res.json().then(function (data) {
@@ -25,7 +27,7 @@ var credentials = function credentials(value) {
 
 var logout = function logout() {
   return new Promise(function (resolve, reject) {
-    (0, _index.get)("".concat(_constans.apiPath, "/logout")).then(function (res) {
+    (0, _index.get)("".concat(_getGlobalData.default.apiPath).concat(_getGlobalData.default.logoutPath)).then(function (res) {
       return res.json().then(function (data) {
         return resolve(data);
       });
@@ -36,7 +38,7 @@ var logout = function logout() {
 };
 
 var _default = {
-  credentials: credentials,
+  login: login,
   logout: logout
 };
 exports.default = _default;

@@ -1,12 +1,13 @@
-export const OPEN_ALERT = "core/openAlert";
-export const CLOSE_ALERT = "core/closeAlert";
+export const OPEN_MESSAGE = 'core/openMessage'
+export const CLOSE_MESSAGE = 'core/closeMessage'
 
-export const openAlert = (data) => ({
-  type: OPEN_ALERT,
-  payload: data,
-});
 
-export const closeAlert = (data) => ({
-  type: CLOSE_ALERT,
+export const openMessage = data => ({
+  type: OPEN_MESSAGE,
   payload: data,
-});
+})
+
+export const closeMessage = data => ({
+  type: CLOSE_MESSAGE,
+  payload: data,
+})

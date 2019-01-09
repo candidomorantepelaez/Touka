@@ -5,7 +5,6 @@ const menu = [
   {
     label: <FormattedMessage id="client.menu.label" />,
     to: "/clients",
-    role: "ADMIN_ROLE"
   }
 ];
 

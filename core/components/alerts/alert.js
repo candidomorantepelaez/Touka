@@ -13,12 +13,14 @@ var _reactIntl = require("react-intl");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Alert = function Alert(props) {
+var Alert = function Alert(_ref) {
+  var type = _ref.type,
+      message = _ref.message;
   return _react.default.createElement("div", {
-    className: "alert alert-".concat(props.type, " alert-dismissible fade show"),
+    className: "alert alert-".concat(type, " alert-dismissible fade show"),
     role: "alert"
   }, _react.default.createElement(_reactIntl.FormattedMessage, {
-    id: props.message
+    id: message
   }), _react.default.createElement("button", {
     type: "button",
     className: "close",
@@ -30,9 +32,8 @@ var Alert = function Alert(props) {
 };
 
 Alert.propTypes = {
-  type: _propTypes.default.string,
-  message: _propTypes.default.string,
-  id: _propTypes.default.number
+  type: _propTypes.default.string.isRequired,
+  message: _propTypes.default.string.isRequired
 };
 var _default = Alert;
 exports.default = _default;

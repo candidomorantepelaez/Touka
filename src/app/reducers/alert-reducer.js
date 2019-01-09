@@ -7,7 +7,7 @@ const initialState = {
   alerts: {
     alerts: [],
   },
-};
+}
 
 export function alerts(state = initialState.alerts.alerts, { type, payload }) {
   switch (type) {
