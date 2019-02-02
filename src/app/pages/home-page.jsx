@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl'
 
 const HomePage = () => (
   <div>
-    <p>hola</p>
+    <p>hola mundo</p>
     <h1><FormattedMessage id="core.app.wellcome" /></h1>
     <h2><FormattedMessage id="core.app.description" /></h2>
   </div>

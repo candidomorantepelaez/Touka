@@ -2,7 +2,7 @@
   "name": "touka",
   "version": "0.2.0",
   "description": "Framework for React App",
-  "main": "core/index.js",
+  "main": "build/index.js",
   "author": "Candido Morante Pelaez",
   "homepage": "https://candidomorantepelaez.github.io/Touka",
   "bugs": {
@@ -13,16 +13,16 @@
     "type": "git",
     "url": "git://github.com/candidomorantepelaez/Touka.git"
   },
-  "keywords": ["react", "framework"],
+  "keywords": [
+    "react",
+    "framework"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "startwithapi": "react-scripts start & npm run apiserver",
-    "transpile": "babel src -d core",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "apiserver": "node src/core/server/index.js",
+    "start": "babel src -w -d build",
+    "transpile": "babel src -d build",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "prepublishOnly": "npm run transpile"
   },
   "peerDependencies": {
     "react": "^16.6.3"

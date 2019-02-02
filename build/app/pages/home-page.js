@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import withAuthentication from 'hoc/withAuthentication'
 var HomePage = function HomePage() {
-  return _react.default.createElement("div", null, _react.default.createElement("p", null, "hola"), _react.default.createElement("h1", null, _react.default.createElement(_reactIntl.FormattedMessage, {
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "hola mundo"), _react.default.createElement("h1", null, _react.default.createElement(_reactIntl.FormattedMessage, {
     id: "core.app.wellcome"
   })), _react.default.createElement("h2", null, _react.default.createElement(_reactIntl.FormattedMessage, {
     id: "core.app.description"
