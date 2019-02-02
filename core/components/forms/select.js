@@ -17,51 +17,65 @@ var _ramda = require("ramda");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Select = function Select(props) {
+/* eslint-disable */
+var Select = function Select(_ref) {
+  var className = _ref.className,
+      name = _ref.name,
+      label = _ref.label,
+      helpText = _ref.helpText,
+      intl = _ref.intl,
+      error = _ref.error,
+      value = _ref.value,
+      _onChange = _ref.onChange,
+      _onBlur = _ref.onBlur,
+      required = _ref.required,
+      disabled = _ref.disabled,
+      readOnly = _ref.readOnly,
+      options = _ref.options;
   return _react.default.createElement("div", {
-    className: "form-group ".concat(props.className)
+    className: "form-group ".concat(className)
   }, _react.default.createElement("label", {
     className: "col-form-label",
-    htmlFor: props.name
+    htmlFor: name
   }, _react.default.createElement(_reactIntl.FormattedMessage, {
-    id: props.label
-  }), props.helpText ? _react.default.createElement("span", {
+    id: label
+  }), helpText ? _react.default.createElement("span", {
     trigger: "click",
     "data-toggle": "tooltip",
     "data-placement": "top",
-    title: props.intl.formatMessage({
-      id: props.helpText
+    title: intl.formatMessage({
+      id: helpText
     })
   }, _react.default.createElement(_fa.FaInfo, {
     className: "icono"
-  })) : null), _react.default.createElement("select", {
-    className: "form-control Form-input-control ".concat(props.error && props.error.message ? "invalid-input" : ""),
-    id: props.name,
-    value: props.value,
-    name: props.name,
-    onChange: function onChange(value) {
-      return props.onChange(value);
+  })) : null, _react.default.createElement("select", {
+    className: "form-control Form-input-control ".concat(error && error.message ? 'invalid-input' : ''),
+    id: name,
+    value: value,
+    name: name,
+    onChange: function onChange(newValue) {
+      return _onChange(newValue);
     },
-    onBlur: function onBlur(value) {
-      return props.onBlur(value);
+    onBlur: function onBlur(newValue) {
+      return _onBlur(newValue);
     },
-    required: props.required,
-    readOnly: props.readOnly,
-    disabled: props.disabled
-  }, props.options.map(function (option, key) {
+    required: required,
+    readOnly: readOnly,
+    disabled: disabled
+  }, (0, _ramda.addIndex)(_ramda.map)(function (option, idx) {
     return _react.default.createElement("option", {
-      key: key,
+      key: idx,
       value: option.value
     }, option.label);
-  })), props.error ? _react.default.createElement("div", {
+  }, options)), error ? _react.default.createElement("div", {
     className: "invalid-input"
-  }, _react.default.createElement("ul", null, (0, _ramda.addIndex)(_ramda.map)(function (obj, key) {
+  }, _react.default.createElement("ul", null, (0, _ramda.addIndex)(_ramda.map)(function (obj, idx) {
     return _react.default.createElement("li", {
-      key: key
+      key: idx
     }, _react.default.createElement(_reactIntl.FormattedMessage, {
       id: obj.message
     }));
-  }, (0, _ramda.values)(props.error)))) : null);
+  }, (0, _ramda.values)(error)))) : null));
 };
 
 Select.propTypes = {
@@ -69,15 +83,27 @@ Select.propTypes = {
   label: _propTypes.default.string,
   helpText: _propTypes.default.string,
   className: _propTypes.default.string,
-  options: _propTypes.default.array,
-  value: _propTypes.default.any,
+  options: _propTypes.default.arrayOf({}),
+  value: _propTypes.default.arrayOf({}),
   required: _propTypes.default.bool,
   readOnly: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
-  error: _propTypes.default.object,
+  error: _propTypes.default.shape({}),
   onChange: _propTypes.default.func.isRequired,
   onBlur: _propTypes.default.func.isRequired,
   intl: _reactIntl.intlShape.isRequired
+};
+Select.defaultProps = {
+  name: '',
+  label: '',
+  helpText: '',
+  className: '',
+  options: [],
+  value: '',
+  required: false,
+  readOnly: false,
+  disabled: false,
+  error: false
 };
 
 var _default = (0, _reactIntl.injectIntl)(Select);

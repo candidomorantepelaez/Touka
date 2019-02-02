@@ -1,18 +1,22 @@
 {
   "name": "touka",
-  "version": "0.1.11",
-  "description": "Framework for React",
+  "version": "0.2.0",
+  "description": "Framework for React App",
   "main": "core/index.js",
   "author": "Candido Morante Pelaez",
+  "homepage": "https://candidomorantepelaez.github.io/Touka",
+  "bugs": {
+    "url": "https://github.com/candidomorantepelaez/Touka/issues"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/candidomorantepelaez/touka.git"
+    "url": "git://github.com/candidomorantepelaez/Touka.git"
   },
+  "keywords": ["react", "framework"],
   "scripts": {
     "start": "react-scripts start",
     "startwithapi": "react-scripts start & npm run apiserver",
-    "build": "webpack --display-error-details --mode production --config config/webpack.config.js --progress",
     "transpile": "babel src -d core",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -24,6 +28,8 @@
     "react": "^16.6.3"
   },
   "dependencies": {
+    "@material-ui/core": "^3.8.2",
+    "@material-ui/icons": "^3.0.2",
     "babel-polyfill": "^6.26.0",
     "fredux": "^2.0.1",
     "fredux-api-utils": "^2.1.0",
@@ -41,7 +47,8 @@
     "redux": "^4.0.1",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "typeface-roboto": "^0.0.54"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",

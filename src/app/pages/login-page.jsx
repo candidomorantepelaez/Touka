@@ -1,62 +1,97 @@
 import React from 'react'
-
-
-const LoginPage = () => (
-  <h1>LoginPage</h1>
-)
-
-export default LoginPage
-
-/*
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
-import Form from 'components/forms/form'
-import SubmitButton from 'components/forms/buttons/submit-button'
-import { credentials } from 'actions/login-action'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import FormControl from '@material-ui/core/FormControl'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
+import MyInput from 'components/forms/input-context'
+import InputLabel from '@material-ui/core/InputLabel'
+import LockIcon from '@material-ui/icons/LockOutlined'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import withStyles from '@material-ui/core/styles/withStyles'
+import MyForm from 'components/forms/form-context'
 
 
-const loginForm = {
-  actions: [<SubmitButton className="col-xl-12 col-lg-12 col-md-12 col-sm-12" label="core.send" />],
-  fields: [
-    {
-      name: 'nif',
-      label: 'core.nif',
-      type: 'text',
-      className: 'col-xl-12 col-lg-12 col-md-12 col-sm-12',
-      required: true,
-    }, {
-      name: 'password',
-      label: 'core.pass',
-      type: 'password',
-      className: 'col-xl-12 col-lg-12 col-md-12 col-sm-12',
-      required: true,
+const styles = theme => ({
+  main: {
+    width: 'auto',
+    display: 'block', // Fix IE 11 issue.
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+      width: 400,
+      marginLeft: 'auto',
+      marginRight: 'auto',
     },
-  ],
+  },
+  paper: {
+    marginTop: theme.spacing.unit * 8,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+  },
+  avatar: {
+    margin: theme.spacing.unit,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing.unit,
+  },
+  submit: {
+    marginTop: theme.spacing.unit * 3,
+  },
+})
+
+function SignIn(props) {
+  const { classes } = props
+
+  return (
+    <main className={classes.main}>
+      <Paper className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <MyForm className={classes.form} onSubmit={value => console.log(value)}>
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="email">Email Address</InputLabel>
+            <MyInput id="email" name="email" autoFocus required />
+          </FormControl>
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="password">Password</InputLabel>
+            <MyInput name="password" type="password" id="password" required />
+          </FormControl>
+          <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="username">Username</InputLabel>
+            <MyInput name="username" id="username" />
+          </FormControl>
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign in
+          </Button>
+        </MyForm>
+      </Paper>
+    </main>
+  )
 }
 
-const LoginPage = ({ onLogin }) => (
-  <div className="login-page offset-xl-4 offset-lg-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
-    <h1><FormattedMessage id="core.app.wellcome" /></h1>
-    <h2><FormattedMessage id="core.app.description" /></h2>
-    <Form
-      actions={loginForm.actions}
-      onSubmit={value => onLogin(value)}
-      fields={loginForm.fields}
-    />
-  </div>
-)
-
-LoginPage.propTypes = {
-  onLogin: PropTypes.func.isRequired,
+SignIn.propTypes = {
+  classes: PropTypes.shape({}).isRequired,
 }
 
-const storeConnect = connect(
-  () => ({}),
-  dispatch => ({
-    onLogin: value => dispatch(credentials(value)),
-  })
-)
-
-export default storeConnect(LoginPage)
-*/
+export default withStyles(styles)(SignIn)

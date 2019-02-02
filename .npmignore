@@ -2,5 +2,10 @@
 .eslintignore
 .eslintrc
 .gitignore
-config
+.docz
+.vscode
+docs
+example
+node_modules
 src
+doczrc.js

@@ -1,11 +1,11 @@
 {
   "config": {
     "title": "Touka",
-    "description": "Framework open source foe react app",
+    "description": "Framework open source for react app",
     "menu": [],
     "ordering": "descending",
-    "version": "0.1.11",
-    "repository": "https://github.com/candidomorantepelaez/touka",
+    "version": "0.2.0",
+    "repository": "https://github.com/candidomorantepelaez/Touka",
     "native": false,
     "codeSandbox": true,
     "themeConfig": {
@@ -14,18 +14,18 @@
         "width": 150
       }
     },
-    "src": "./docsDev",
+    "src": "./",
     "dest": "./docs",
-    "base": "/touka/"
+    "base": "/Touka/"
   },
   "entries": {
-    "create-app-touka.mdx": {
+    "src/create-app-touka.mdx": {
       "name": "CreateAppTouka",
       "route": "/create-app-touka",
-      "id": "e24996dd8b61debc882213f772f26b26",
-      "filepath": "create-app-touka.mdx",
-      "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/create-app-touka.mdx",
-      "slug": "create-app-touka",
+      "id": "935eba31e60bc16a9a594c10bcd65960",
+      "filepath": "src/create-app-touka.mdx",
+      "link": "https://github.com/candidomorantepelaez/Touka/edit/master/src/create-app-touka.mdx",
+      "slug": "src-create-app-touka",
       "order": 0,
       "menu": null,
       "headings": [
@@ -81,13 +81,40 @@
         }
       ]
     },
-    "gestion-react.mdx": {
+    "src/index.mdx": {
+      "name": "Touka",
+      "route": "/",
+      "order": 1,
+      "id": "6576455a124f9aaefd860597f03a8fe4",
+      "filepath": "src/index.mdx",
+      "link": "https://github.com/candidomorantepelaez/Touka/edit/master/src/index.mdx",
+      "slug": "src-index",
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "bienvenidos-a-touka",
+          "value": "Bienvenidos a Touka"
+        },
+        {
+          "depth": 2,
+          "slug": "instalacion-versión-alfa-solo-apta-para-pruebas",
+          "value": "instalacion  Versión Alfa, solo apta para pruebas"
+        },
+        {
+          "depth": 2,
+          "slug": "uso",
+          "value": "uso"
+        }
+      ]
+    },
+    "src/application/gestion-react.mdx": {
       "name": "Gestionando React",
       "route": "/gestion-react",
-      "id": "c0a421942f75e439fc537ac64b86164b",
-      "filepath": "gestion-react.mdx",
-      "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/gestion-react.mdx",
-      "slug": "gestion-react",
+      "id": "c730d785d394b440702818bb9fa821c5",
+      "filepath": "src/application/gestion-react.mdx",
+      "link": "https://github.com/candidomorantepelaez/Touka/edit/master/src/application/gestion-react.mdx",
+      "slug": "src-application-gestion-react",
       "order": 0,
       "menu": null,
       "headings": [
@@ -123,40 +150,13 @@
         }
       ]
     },
-    "index.mdx": {
-      "name": "Touka",
-      "route": "/",
-      "order": 1,
-      "id": "35af6c935e95160fd8e3b8161dc63ff1",
-      "filepath": "index.mdx",
-      "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/index.mdx",
-      "slug": "index",
-      "menu": null,
-      "headings": [
-        {
-          "depth": 1,
-          "slug": "bienvenidos-a-touka",
-          "value": "Bienvenidos a Touka"
-        },
-        {
-          "depth": 2,
-          "slug": "instalacion-versión-alfa-solo-apta-para-pruebas",
-          "value": "instalacion  Versión Alfa, solo apta para pruebas"
-        },
-        {
-          "depth": 2,
-          "slug": "uso",
-          "value": "uso"
-        }
-      ]
-    },
-    "modules.mdx": {
+    "src/modules/modules.mdx": {
       "name": "Modules",
       "route": "/modules",
-      "id": "4e40f1db41356f59a3d5bdda1f8dccab",
-      "filepath": "modules.mdx",
-      "link": "https://github.com/candidomorantepelaez/touka/edit/master/docsDev/modules.mdx",
-      "slug": "modules",
+      "id": "62fdb67c7ac1088ea775eb0da769b203",
+      "filepath": "src/modules/modules.mdx",
+      "link": "https://github.com/candidomorantepelaez/Touka/edit/master/src/modules/modules.mdx",
+      "slug": "src-modules-modules",
       "order": 0,
       "menu": null,
       "headings": []

@@ -23,6 +23,8 @@ var _i18n = require("./i18n");
 
 var _setGlobalData = _interopRequireDefault(require("./config/set-global-data"));
 
+require("typeface-roboto");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var createAppTouka = function createAppTouka() {

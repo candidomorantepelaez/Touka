@@ -17,41 +17,55 @@ var _ramda = require("ramda");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Input = function Input(props) {
+var Input = function Input(_ref) {
+  var className = _ref.className,
+      name = _ref.name,
+      label = _ref.label,
+      helpText = _ref.helpText,
+      intl = _ref.intl,
+      error = _ref.error,
+      type = _ref.type,
+      value = _ref.value,
+      placeholder = _ref.placeholder,
+      _onChange = _ref.onChange,
+      _onBlur = _ref.onBlur,
+      required = _ref.required,
+      readOnly = _ref.readOnly,
+      disabled = _ref.disabled;
   return _react.default.createElement("div", {
-    className: "form-group ".concat(props.className)
+    className: "form-group ".concat(className)
   }, _react.default.createElement("label", {
-    className: "col-form-label",
-    htmlFor: props.name
+    htmlFor: name,
+    className: "col-form-label"
   }, _react.default.createElement(_reactIntl.FormattedMessage, {
-    id: props.label
-  }), props.helpText ? _react.default.createElement("span", {
+    id: label
+  }), helpText ? _react.default.createElement("span", {
     trigger: "click",
     "data-toggle": "tooltip",
     "data-placement": "top",
-    title: props.intl.formatMessage({
-      id: props.helpText
+    title: intl.formatMessage({
+      id: helpText
     })
   }, _react.default.createElement(_fa.FaInfo, {
     className: "icono"
-  })) : null), _react.default.createElement("input", {
+  })) : null, _react.default.createElement("input", {
     autoComplete: "false",
-    className: "form-control Form-input-control ".concat(props.error && props.error.message ? "invalid-input" : ""),
-    id: props.name,
-    type: props.type,
-    value: props.value,
-    placeholder: props.placeholder,
-    name: props.name,
-    onChange: function onChange(value) {
-      return props.onChange(value);
+    className: "form-control Form-input-control ".concat(error && error.message ? 'invalid-input' : ''),
+    id: name,
+    type: type,
+    value: value,
+    placeholder: placeholder,
+    name: name,
+    onChange: function onChange(newValue) {
+      return _onChange(newValue);
     },
-    onBlur: function onBlur(value) {
-      return props.onBlur(value);
+    onBlur: function onBlur(newValue) {
+      return _onBlur(newValue);
     },
-    required: props.required,
-    readOnly: props.readOnly,
-    disabled: props.disabled
-  }), props.error ? _react.default.createElement("div", {
+    required: required,
+    readOnly: readOnly,
+    disabled: disabled
+  }), error ? _react.default.createElement("div", {
     className: "invalid-input"
   }, _react.default.createElement("ul", null, (0, _ramda.addIndex)(_ramda.map)(function (obj, key) {
     return _react.default.createElement("li", {
@@ -59,7 +73,7 @@ var Input = function Input(props) {
     }, _react.default.createElement(_reactIntl.FormattedMessage, {
       id: obj.message
     }));
-  }, (0, _ramda.values)(props.error)))) : null);
+  }, (0, _ramda.values)(error)))) : null));
 };
 
 Input.propTypes = {
@@ -72,10 +86,24 @@ Input.propTypes = {
   required: _propTypes.default.bool,
   readOnly: _propTypes.default.bool,
   disabled: _propTypes.default.bool,
-  error: _propTypes.default.object,
+  error: _propTypes.default.shape({}),
+  placeholder: _propTypes.default.string,
   onChange: _propTypes.default.func.isRequired,
   onBlur: _propTypes.default.func.isRequired,
   intl: _reactIntl.intlShape.isRequired
+};
+Input.defaultProps = {
+  name: '',
+  label: '',
+  helpText: '',
+  type: 'text',
+  className: '',
+  value: '',
+  required: false,
+  readOnly: false,
+  disabled: false,
+  error: {},
+  placeholder: ''
 };
 
 var _default = (0, _reactIntl.injectIntl)(Input);

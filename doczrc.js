@@ -1,9 +1,9 @@
 export default {
-  src: './docsDev',
+  src: './',
   dest: './docs',
-  base: '/touka/',
+  base: '/Touka/',
   title: 'Touka',
-  description: 'Framework open source foe react app',
+  description: 'Framework open source for react app',
   themeConfig: {
     logo: {
       src: './public/assets/images/logoWithName.png',
