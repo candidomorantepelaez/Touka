@@ -28,8 +28,6 @@
     "react": "^16.6.3"
   },
   "dependencies": {
-    "@material-ui/core": "^3.8.2",
-    "@material-ui/icons": "^3.0.2",
     "babel-polyfill": "^6.26.0",
     "fredux": "^2.0.1",
     "fredux-api-utils": "^2.1.0",

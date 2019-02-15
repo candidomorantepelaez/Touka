@@ -7,7 +7,6 @@ import { getMenu, getRoutes, getPageRewiew } from 'modules'
 import getStore from 'store'
 import { messages, initDefaultLocales } from 'i18n'
 import setGlobalData from 'config/set-global-data'
-import 'typeface-roboto'
 
 
 const createAppTouka = (userConfig = {}) => {
