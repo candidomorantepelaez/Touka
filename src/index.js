@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import { merge, defaultTo } from 'ramda'
+import { mergeLeft, mergeRight, defaultTo } from 'ramda'
 import initialConfig from 'config'
 import { mergeModules } from 'functions'
 import { render, createProviders } from 'application'
@@ -10,7 +10,7 @@ import setGlobalData from 'config/set-global-data'
 
 
 const createAppTouka = (userConfig = {}) => {
-  const config = merge(defaultTo({})(userConfig.config), initialConfig.config)
+  const config = mergeLeft(defaultTo({})(userConfig.config), initialConfig.config)
 
   const modules = mergeModules(userConfig.modules, initialConfig.modules)
 
@@ -26,7 +26,7 @@ const createAppTouka = (userConfig = {}) => {
 
   setGlobalData(config)
 
-  render(createProviders(merge(config, moduleConfig)))
+  render(createProviders(mergeRight(config, moduleConfig)))
 }
 
 export default createAppTouka
