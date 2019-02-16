@@ -3,15 +3,24 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addIndex, map } from 'ramda'
 import { getAlerts } from 'app/reducers/alert-reducer'
-import Alert from 'components/alerts/alert'
+import { ConfigContext } from 'contexts'
 
 
 const AlertProvider = ({ alerts }) => {
   if (alerts.length > 0) {
     return (
-      <div>
-        {addIndex(map)((alert, key) => <Alert type={alert.type} id={key} message={alert.message} key={key} />, alerts)}
-      </div>
+      <ConfigContext.Consumer>
+        {({ AlertComponent }) => (
+          <div>
+            {addIndex(map)((alert, key) => React.createElement(AlertComponent, {
+              type: alert.type,
+              id: key,
+              message: alert.message,
+              key,
+            }))}
+          </div>
+        )}
+      </ConfigContext.Consumer>
     )
   }
   return null

@@ -1,9 +1,10 @@
 import appModule from 'app/module'
-import NoMatchPage from 'app/pages/no-match-page'
-import MenuComponent from 'components/menus/menu-principal'
-import LoginPage from 'app/pages/login-page'
-import LogoutPage from 'app/pages/logout-page'
-import HomePage from 'app/pages/home-page'
+import NoMatchPage from 'app/components/no-match-page'
+import MenuComponent from 'app/components/menu-principal'
+import LoginPage from 'app/components/login-page'
+import LogoutPage from 'app/components/logout-page'
+import HomePage from 'app/components/home-page'
+import AlertComponent from 'app/components/alert-component'
 
 
 const initialConfig = {
@@ -21,6 +22,7 @@ const initialConfig = {
     logoutComponent: LogoutPage,
     noMatchComponent: NoMatchPage,
     menuComponent: MenuComponent,
+    alertComponent: AlertComponent,
   },
   modules: [
     appModule,

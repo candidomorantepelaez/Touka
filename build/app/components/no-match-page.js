@@ -9,9 +9,9 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LoginPage = function LoginPage() {
-  return _react.default.createElement("h1", null, "Login page");
+var NoMatchPage = function NoMatchPage() {
+  return _react.default.createElement("h1", null, "404 no match route");
 };
 
-var _default = LoginPage;
+var _default = NoMatchPage;
 exports.default = _default;

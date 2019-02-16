@@ -4,13 +4,11 @@ import { Provider } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 import { history, ToukaRoutes } from 'routes'
 import { ConfigContext } from 'contexts'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import AlertProvider from 'components/alerts/alert-provider'
+import AlertProvider from 'application/alert-provider'
 
 
 const createProviders = config => (
   <Fragment>
-    <CssBaseline />
     <ConfigContext.Provider value={config}>
       <Provider store={config.store}>
         <IntlProvider locale={config.defaultLanguage} messages={config.messages}>

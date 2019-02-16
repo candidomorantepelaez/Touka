@@ -24,7 +24,7 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 var initDefaultLocales = function initDefaultLocales() {
-  return (0, _reactIntl.addLocaleData)(_toConsumableArray(_en.default).concat(_toConsumableArray(_es.default)));
+  return (0, _reactIntl.addLocaleData)([].concat(_toConsumableArray(_en.default), _toConsumableArray(_es.default)));
 };
 
 exports.initDefaultLocales = initDefaultLocales;

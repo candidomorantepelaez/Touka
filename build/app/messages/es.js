@@ -21,15 +21,15 @@ var es = {
   'core.no': 'No',
   'core.logout': 'cerrar sesion',
   'core.field.required': 'Campo requerido',
-  'core.app.title': 'Ari Distribuciones',
-  'core.app.wellcome': 'Bienvenidos a Ari-Distri',
+  'core.app.title': 'Touka Framework',
+  'core.app.wellcome': 'Bienvenidos a Touka Framework',
   'core.app.description': 'Su app de gestión de empresa',
   'core.authentication.unauthorized': 'No autorizado',
   'core.validations.alphanumeric': 'Formato no valido, debe ser alfanumerico.',
   'core.validations.numeric': 'Formate no valido, debe ser numerico',
   'core.validations.email': 'Formato no valido, debe ser un email valido',
   'core.validations.maxlong': 'Formato no valido, debe ser texto mas corto',
-  'core.alerts.success.login': 'Bienvenido a Ari-Distribuciones.',
+  'core.alerts.success.login': 'Bienvenido a Touka Frameworks.',
   'core.alerts.success.logout': 'Cerrada la sesion correctamente.',
   'core.alerts.error.login': 'Nif o Password incorrecto.'
 };

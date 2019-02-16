@@ -9,9 +9,9 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LoginPage = function LoginPage() {
-  return _react.default.createElement("h1", null, "Login page");
+var LogoutPage = function LogoutPage() {
+  return _react.default.createElement("h1", null, "Logout page");
 };
 
-var _default = LoginPage;
+var _default = LogoutPage;
 exports.default = _default;

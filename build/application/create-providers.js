@@ -17,16 +17,14 @@ var _routes = require("../routes");
 
 var _contexts = require("../contexts");
 
-var _CssBaseline = _interopRequireDefault(require("@material-ui/core/CssBaseline"));
-
-var _alertProvider = _interopRequireDefault(require("../components/alerts/alert-provider"));
+var _alertProvider = _interopRequireDefault(require("./alert-provider"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 var createProviders = function createProviders(config) {
-  return _react.default.createElement(_react.Fragment, null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_contexts.ConfigContext.Provider, {
+  return _react.default.createElement(_react.Fragment, null, _react.default.createElement(_contexts.ConfigContext.Provider, {
     value: config
   }, _react.default.createElement(_reactRedux.Provider, {
     store: config.store

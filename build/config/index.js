@@ -7,15 +7,17 @@ exports.default = void 0;
 
 var _module = _interopRequireDefault(require("../app/module"));
 
-var _noMatchPage = _interopRequireDefault(require("../app/pages/no-match-page"));
+var _noMatchPage = _interopRequireDefault(require("../app/components/no-match-page"));
 
-var _menuPrincipal = _interopRequireDefault(require("../components/menus/menu-principal"));
+var _menuPrincipal = _interopRequireDefault(require("../app/components/menu-principal"));
 
-var _loginPage = _interopRequireDefault(require("../app/pages/login-page"));
+var _loginPage = _interopRequireDefault(require("../app/components/login-page"));
 
-var _logoutPage = _interopRequireDefault(require("../app/pages/logout-page"));
+var _logoutPage = _interopRequireDefault(require("../app/components/logout-page"));
 
-var _homePage = _interopRequireDefault(require("../app/pages/home-page"));
+var _homePage = _interopRequireDefault(require("../app/components/home-page"));
+
+var _alertComponent = _interopRequireDefault(require("../app/components/alert-component"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,7 +35,8 @@ var initialConfig = {
     loginComponent: _loginPage.default,
     logoutComponent: _logoutPage.default,
     noMatchComponent: _noMatchPage.default,
-    menuComponent: _menuPrincipal.default
+    menuComponent: _menuPrincipal.default,
+    alertComponent: _alertComponent.default
   },
   modules: [_module.default]
 };
