@@ -27,7 +27,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var createAppTouka = function createAppTouka() {
   var userConfig = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var config = (0, _ramda.merge)((0, _ramda.defaultTo)({})(userConfig.config), _config.default.config);
+  var config = (0, _ramda.mergeLeft)((0, _ramda.defaultTo)({})(userConfig.config), _config.default.config);
   var modules = (0, _functions.mergeModules)(userConfig.modules, _config.default.modules);
   var moduleConfig = {
     store: (0, _store.default)(modules),
@@ -38,7 +38,7 @@ var createAppTouka = function createAppTouka() {
   };
   (0, _i18n.initDefaultLocales)(config.languages);
   (0, _setGlobalData.default)(config);
-  (0, _application.render)((0, _application.createProviders)((0, _ramda.merge)(config, moduleConfig)));
+  (0, _application.render)((0, _application.createProviders)((0, _ramda.mergeRight)(config, moduleConfig)));
 };
 
 var _default = createAppTouka;
