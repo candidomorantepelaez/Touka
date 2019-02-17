@@ -1,5 +1,5 @@
 import {
-  isNil, is, find, append,
+  isNil, is, find, concat,
 } from 'ramda'
 
 
@@ -10,7 +10,7 @@ const mergeModules = (userModules, appModules) => {
 
   const coreModule = find(module => module.key === 'core', userModules)
   if (isNil(coreModule)) {
-    return append(userModules, appModules)
+    return concat(userModules, appModules)
   }
 
   return userModules

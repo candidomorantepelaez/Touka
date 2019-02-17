@@ -17,7 +17,7 @@ var mergeModules = function mergeModules(userModules, appModules) {
   }, userModules);
 
   if ((0, _ramda.isNil)(coreModule)) {
-    return (0, _ramda.append)(userModules, appModules);
+    return (0, _ramda.concat)(userModules, appModules);
   }
 
   return userModules;
