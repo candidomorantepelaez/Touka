@@ -27,7 +27,7 @@ Object.defineProperty(exports, "history", {
     return _history.default;
   }
 });
-Object.defineProperty(exports, "intlText", {
+Object.defineProperty(exports, "IntlText", {
   enumerable: true,
   get: function get() {
     return _intlText.default;
@@ -54,13 +54,13 @@ Object.defineProperty(exports, "ConfigContext", {
 Object.defineProperty(exports, "getConfigData", {
   enumerable: true,
   get: function get() {
-    return _getConfigData.default;
+    return _getGlobalData.default;
   }
 });
 Object.defineProperty(exports, "setConfigData", {
   enumerable: true,
   get: function get() {
-    return _setConfigData.default;
+    return _setGlobalData.default;
   }
 });
 Object.defineProperty(exports, "api", {
@@ -84,7 +84,7 @@ Object.defineProperty(exports, "loginApi", {
 Object.defineProperty(exports, "alertAction", {
   enumerable: true,
   get: function get() {
-    return _alertAction.default;
+    return _alertActions.default;
   }
 });
 Object.defineProperty(exports, "propTypes", {
@@ -114,7 +114,7 @@ Object.defineProperty(exports, "redux", {
 
 var _main = _interopRequireDefault(require("./main"));
 
-var _store = _interopRequireDefault(require("store/store"));
+var _store = _interopRequireDefault(require("./store"));
 
 var _reactRedux = _interopRequireDefault(require("react-redux"));
 
@@ -128,9 +128,9 @@ var _isAuthorizated = _interopRequireDefault(require("./functions/is-authorizate
 
 var _configContext = _interopRequireDefault(require("./contexts/config-context"));
 
-var _getConfigData = _interopRequireDefault(require("config/get-config-data"));
+var _getGlobalData = _interopRequireDefault(require("./config/get-global-data"));
 
-var _setConfigData = _interopRequireDefault(require("config/set-config-data"));
+var _setGlobalData = _interopRequireDefault(require("./config/set-global-data"));
 
 var _exportApiUtils = _interopRequireDefault(require("./api/export-api-utils"));
 
@@ -138,7 +138,7 @@ var _loginAction = _interopRequireDefault(require("./actions/login-action"));
 
 var _loginApi = _interopRequireDefault(require("./api/login-api"));
 
-var _alertAction = _interopRequireDefault(require("actions/alert-action"));
+var _alertActions = _interopRequireDefault(require("./actions/alert-actions"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
