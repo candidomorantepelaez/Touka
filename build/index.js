@@ -3,43 +3,149 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+Object.defineProperty(exports, "createAppTouka", {
+  enumerable: true,
+  get: function get() {
+    return _main.default;
+  }
+});
+Object.defineProperty(exports, "getStore", {
+  enumerable: true,
+  get: function get() {
+    return _store.default;
+  }
+});
+Object.defineProperty(exports, "connect", {
+  enumerable: true,
+  get: function get() {
+    return _reactRedux.default;
+  }
+});
+Object.defineProperty(exports, "history", {
+  enumerable: true,
+  get: function get() {
+    return _history.default;
+  }
+});
+Object.defineProperty(exports, "intlText", {
+  enumerable: true,
+  get: function get() {
+    return _intlText.default;
+  }
+});
+Object.defineProperty(exports, "withAuthentication", {
+  enumerable: true,
+  get: function get() {
+    return _withAuthentication.default;
+  }
+});
+Object.defineProperty(exports, "isAuthorizated", {
+  enumerable: true,
+  get: function get() {
+    return _isAuthorizated.default;
+  }
+});
+Object.defineProperty(exports, "ConfigContext", {
+  enumerable: true,
+  get: function get() {
+    return _configContext.default;
+  }
+});
+Object.defineProperty(exports, "getConfigData", {
+  enumerable: true,
+  get: function get() {
+    return _getConfigData.default;
+  }
+});
+Object.defineProperty(exports, "setConfigData", {
+  enumerable: true,
+  get: function get() {
+    return _setConfigData.default;
+  }
+});
+Object.defineProperty(exports, "api", {
+  enumerable: true,
+  get: function get() {
+    return _exportApiUtils.default;
+  }
+});
+Object.defineProperty(exports, "loginAction", {
+  enumerable: true,
+  get: function get() {
+    return _loginAction.default;
+  }
+});
+Object.defineProperty(exports, "loginApi", {
+  enumerable: true,
+  get: function get() {
+    return _loginApi.default;
+  }
+});
+Object.defineProperty(exports, "alertAction", {
+  enumerable: true,
+  get: function get() {
+    return _alertAction.default;
+  }
+});
+Object.defineProperty(exports, "propTypes", {
+  enumerable: true,
+  get: function get() {
+    return _propTypes.default;
+  }
+});
+Object.defineProperty(exports, "ramda", {
+  enumerable: true,
+  get: function get() {
+    return _ramda.default;
+  }
+});
+Object.defineProperty(exports, "fredux", {
+  enumerable: true,
+  get: function get() {
+    return _fredux.default;
+  }
+});
+Object.defineProperty(exports, "redux", {
+  enumerable: true,
+  get: function get() {
+    return _redux.default;
+  }
+});
 
-require("babel-polyfill");
+var _main = _interopRequireDefault(require("./main"));
 
-var _ramda = require("ramda");
+var _store = _interopRequireDefault(require("store/store"));
 
-var _config = _interopRequireDefault(require("./config"));
+var _reactRedux = _interopRequireDefault(require("react-redux"));
 
-var _functions = require("./functions");
+var _history = _interopRequireDefault(require("./routes/history"));
 
-var _application = require("./application");
+var _intlText = _interopRequireDefault(require("./i18n/intlText"));
 
-var _modules = require("./modules");
+var _withAuthentication = _interopRequireDefault(require("./hoc/with-authentication"));
 
-var _store = _interopRequireDefault(require("./store"));
+var _isAuthorizated = _interopRequireDefault(require("./functions/is-authorizated"));
 
-var _i18n = require("./i18n");
+var _configContext = _interopRequireDefault(require("./contexts/config-context"));
 
-var _setGlobalData = _interopRequireDefault(require("./config/set-global-data"));
+var _getConfigData = _interopRequireDefault(require("config/get-config-data"));
+
+var _setConfigData = _interopRequireDefault(require("config/set-config-data"));
+
+var _exportApiUtils = _interopRequireDefault(require("./api/export-api-utils"));
+
+var _loginAction = _interopRequireDefault(require("./actions/login-action"));
+
+var _loginApi = _interopRequireDefault(require("./api/login-api"));
+
+var _alertAction = _interopRequireDefault(require("actions/alert-action"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _ramda = _interopRequireDefault(require("ramda"));
+
+var _fredux = _interopRequireDefault(require("fredux"));
+
+var _redux = _interopRequireDefault(require("redux"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var createAppTouka = function createAppTouka() {
-  var userConfig = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var config = (0, _ramda.mergeLeft)((0, _ramda.defaultTo)({})(userConfig.config), _config.default.config);
-  var modules = (0, _functions.mergeModules)(userConfig.modules, _config.default.modules);
-  var moduleConfig = {
-    store: (0, _store.default)(modules),
-    messages: (0, _i18n.messages)(config.languages, modules)[config.defaultLanguage],
-    menu: (0, _modules.getMenu)(modules),
-    routes: (0, _modules.getRoutes)(modules),
-    pageReviews: (0, _modules.getPageRewiew)(modules)
-  };
-  (0, _i18n.initDefaultLocales)(config.languages);
-  (0, _setGlobalData.default)(config);
-  (0, _application.render)((0, _application.createProviders)((0, _ramda.mergeRight)(config, moduleConfig)));
-};
-
-var _default = createAppTouka;
-exports.default = _default;

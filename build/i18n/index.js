@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.intlText = exports.messages = exports.initDefaultLocales = void 0;
+exports.messages = exports.initDefaultLocales = void 0;
 
 var _reactIntl = require("react-intl");
 
@@ -34,5 +34,3 @@ var messages = function messages(languages, modules) {
 };
 
 exports.messages = messages;
-var intlText = _reactIntl.FormattedMessage;
-exports.intlText = intlText;
