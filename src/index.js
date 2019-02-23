@@ -1,32 +1,18 @@
-import 'babel-polyfill'
-import { mergeLeft, mergeRight, defaultTo } from 'ramda'
-import initialConfig from 'config'
-import { mergeModules } from 'functions'
-import { render, createProviders } from 'application'
-import { getMenu, getRoutes, getPageRewiew } from 'modules'
-import getStore from 'store'
-import { messages, initDefaultLocales } from 'i18n'
-import setGlobalData from 'config/set-global-data'
-
-
-const createAppTouka = (userConfig = {}) => {
-  const config = mergeLeft(defaultTo({})(userConfig.config), initialConfig.config)
-
-  const modules = mergeModules(userConfig.modules, initialConfig.modules)
-
-  const moduleConfig = {
-    store: getStore(modules),
-    messages: messages(config.languages, modules)[config.defaultLanguage],
-    menu: getMenu(modules),
-    routes: getRoutes(modules),
-    pageReviews: getPageRewiew(modules),
-  }
-
-  initDefaultLocales(config.languages)
-
-  setGlobalData(config)
-
-  render(createProviders(mergeRight(config, moduleConfig)))
-}
-
-export default createAppTouka
+export { default as createAppTouka } from 'main'
+export { default as getStore } from 'store/store'
+export { default as connect } from 'react-redux'
+export { default as history } from 'routes/history'
+export { default as intlText } from 'i18n/intlText'
+export { default as withAuthentication } from 'hoc/with-authentication'
+export { default as isAuthorizated } from 'functions/is-authorizated'
+export { default as ConfigContext } from 'contexts/config-context'
+export { default as getConfigData } from 'config/get-config-data'
+export { default as setConfigData } from 'config/set-config-data'
+export { default as api } from 'api/export-api-utils'
+export { default as loginAction } from 'actions/login-action'
+export { default as loginApi } from 'api/login-api'
+export { default as alertAction } from 'actions/alert-action'
+export { default as propTypes } from 'prop-types'
+export { default as ramda } from 'ramda'
+export { default as fredux } from 'fredux'
+export { default as redux } from 'redux'
