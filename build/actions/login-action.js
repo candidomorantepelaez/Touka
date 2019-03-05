@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.saveCurrentUser = exports.logout = exports.login = exports.ON_SAVE_USER_FROM_COOKIE = exports.ON_LOGOUT = exports.ON_LOGIN = void 0;
+exports.default = exports.saveCurrentUser = exports.logout = exports.login = exports.ON_SAVE_USER_FROM_COOKIE = exports.ON_LOGOUT = exports.ON_LOGIN = void 0;
 
 var _fredux = require("fredux");
 
@@ -48,3 +48,12 @@ var saveCurrentUser = function saveCurrentUser(value) {
 };
 
 exports.saveCurrentUser = saveCurrentUser;
+var _default = {
+  ON_LOGIN: ON_LOGIN,
+  ON_LOGOUT: ON_LOGOUT,
+  ON_SAVE_USER_FROM_COOKIE: ON_SAVE_USER_FROM_COOKIE,
+  login: login,
+  logout: logout,
+  saveCurrentUser: saveCurrentUser
+};
+exports.default = _default;

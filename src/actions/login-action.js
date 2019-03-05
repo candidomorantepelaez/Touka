@@ -20,3 +20,12 @@ export const saveCurrentUser = value => ({
   type: ON_SAVE_USER_FROM_COOKIE,
   payload: value,
 })
+
+export default {
+  ON_LOGIN,
+  ON_LOGOUT,
+  ON_SAVE_USER_FROM_COOKIE,
+  login,
+  logout,
+  saveCurrentUser,
+}

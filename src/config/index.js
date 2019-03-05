@@ -9,7 +9,7 @@ import AlertComponent from 'app/components/alert-component'
 
 const initialConfig = {
   config: {
-    apibasePath: 'http://localhost:8080',
+    apiBasePath: 'http://localhost:8080',
     apiLoginPath: '/login',
     apiLogoutPath: '/logout',
     appBasePath: '/',

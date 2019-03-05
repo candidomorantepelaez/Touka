@@ -22,17 +22,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var reactions = [{
   match: (0, _fredux.successType)(_loginAction.ON_LOGIN),
   reaction: function reaction(value) {
+    var configData = (0, _getGlobalData.default)();
+
     _reactCookies.default.save('user_app', value.payload.response.user, {
-      path: _getGlobalData.default.appBasePath
+      path: configData.appBasePath
     });
 
     _reactCookies.default.save('session-id', value.payload.response.sessionId, {
-      path: _getGlobalData.default.appBasePath
+      path: configData.appBasePath
     });
 
-    _history.default.push('/touka-go-home-redirect');
+    _history.default.push(configData.appBasePath);
 
-    return (0, _alertActions.openAlert)({
+    return (0, _alertActions.openMessage)({
       type: 'success',
       message: 'core.alerts.success.login'
     });
@@ -40,7 +42,7 @@ var reactions = [{
 }, {
   match: (0, _fredux.failureType)(_loginAction.ON_LOGIN),
   reaction: function reaction() {
-    return (0, _alertActions.openAlert)({
+    return (0, _alertActions.openMessage)({
       type: 'danger',
       message: 'core.alerts.error.login'
     });
@@ -48,17 +50,19 @@ var reactions = [{
 }, {
   match: (0, _fredux.successType)(_loginAction.ON_LOGOUT),
   reaction: function reaction() {
+    var configData = (0, _getGlobalData.default)();
+
     _reactCookies.default.remove('user_app', {
-      path: _getGlobalData.default.appBasePath
+      path: configData.appBasePath
     });
 
     _reactCookies.default.remove('session-id', {
-      path: _getGlobalData.default.appBasePath
+      path: configData.appBasePath
     });
 
-    _history.default.push('/touka-go-home-redirect');
+    _history.default.push(configData.appBasePath);
 
-    return (0, _alertActions.openAlert)({
+    return (0, _alertActions.openMessage)({
       type: 'success',
       message: 'core.alerts.success.logout'
     });

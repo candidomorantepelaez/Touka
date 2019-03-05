@@ -13,8 +13,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var login = function login(value) {
   return new Promise(function (resolve, reject) {
-    (0, _index.post)("".concat(_getGlobalData.default.apiPath).concat(_getGlobalData.default.loginPath), {
-      body: value
+    var configData = (0, _getGlobalData.default)();
+    (0, _index.post)("".concat(configData.apiBasePath).concat(configData.apiLoginPath), {
+      body: value,
+      mode: 'cors'
     }).then(function (res) {
       return res.json().then(function (data) {
         return resolve(data);
@@ -27,7 +29,11 @@ var login = function login(value) {
 
 var logout = function logout() {
   return new Promise(function (resolve, reject) {
-    (0, _index.get)("".concat(_getGlobalData.default.apiPath).concat(_getGlobalData.default.logoutPath)).then(function (res) {
+    var configData = (0, _getGlobalData.default)();
+    (0, _index.get)("".concat(configData.apiBasePath).concat(configData.apiLogoutPath), {
+      mode: 'cors',
+      credentials: 'include'
+    }).then(function (res) {
       return res.json().then(function (data) {
         return resolve(data);
       });

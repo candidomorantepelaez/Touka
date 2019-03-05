@@ -8,9 +8,9 @@ exports.default = void 0;
 /* global window */
 var setGlobalData = function setGlobalData(config) {
   window.appBasePath = config.appBasePath;
-  window.apiPath = config.apiPath;
-  window.loginPath = config.loginPath;
-  window.logoutPath = config.logoutPath;
+  window.apiBasePath = config.apiBasePath;
+  window.apiLoginPath = config.apiLoginPath;
+  window.apiLogoutPath = config.apiLogoutPath;
 };
 
 var _default = setGlobalData;

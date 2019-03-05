@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { insert } from 'ramda'
-import { OPEN_ALERT, CLOSE_ALERT } from 'actions/alert-actions'
+import { insert, filter } from 'ramda'
+import { OPEN_MESSAGE, CLOSE_MESSAGE } from 'actions/alert-actions'
 
 
 const initialState = {
@@ -11,10 +11,10 @@ const initialState = {
 
 export function alerts(state = initialState.alerts.alerts, { type, payload }) {
   switch (type) {
-    case OPEN_ALERT:
+    case OPEN_MESSAGE:
       return insert(state.length, payload, state)
-    case CLOSE_ALERT:
-      return payload
+    case CLOSE_MESSAGE:
+      return filter(alert => payload.message !== alert.message, state)
     default:
       return state
   }

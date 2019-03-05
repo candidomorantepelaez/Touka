@@ -18,7 +18,7 @@ Object.defineProperty(exports, "getStore", {
 Object.defineProperty(exports, "connect", {
   enumerable: true,
   get: function get() {
-    return _reactRedux.default;
+    return _exportConnect.default;
   }
 });
 Object.defineProperty(exports, "history", {
@@ -87,16 +87,10 @@ Object.defineProperty(exports, "alertAction", {
     return _alertActions.default;
   }
 });
-Object.defineProperty(exports, "propTypes", {
+Object.defineProperty(exports, "PropTypes", {
   enumerable: true,
   get: function get() {
     return _propTypes.default;
-  }
-});
-Object.defineProperty(exports, "ramda", {
-  enumerable: true,
-  get: function get() {
-    return _ramda.default;
   }
 });
 Object.defineProperty(exports, "fredux", {
@@ -116,7 +110,7 @@ var _main = _interopRequireDefault(require("./main"));
 
 var _store = _interopRequireDefault(require("./store"));
 
-var _reactRedux = _interopRequireDefault(require("react-redux"));
+var _exportConnect = _interopRequireDefault(require("./store/export-connect"));
 
 var _history = _interopRequireDefault(require("./routes/history"));
 
@@ -141,8 +135,6 @@ var _loginApi = _interopRequireDefault(require("./api/login-api"));
 var _alertActions = _interopRequireDefault(require("./actions/alert-actions"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _ramda = _interopRequireDefault(require("ramda"));
 
 var _fredux = _interopRequireDefault(require("fredux"));
 

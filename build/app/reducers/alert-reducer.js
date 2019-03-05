@@ -26,11 +26,13 @@ function alerts() {
       payload = _ref.payload;
 
   switch (type) {
-    case _alertActions.OPEN_ALERT:
+    case _alertActions.OPEN_MESSAGE:
       return (0, _ramda.insert)(state.length, payload, state);
 
-    case _alertActions.CLOSE_ALERT:
-      return payload;
+    case _alertActions.CLOSE_MESSAGE:
+      return (0, _ramda.filter)(function (alert) {
+        return payload.message !== alert.message;
+      }, state);
 
     default:
       return state;

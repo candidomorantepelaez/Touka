@@ -1,10 +1,10 @@
 /* global window */
 
-const getGlobalData = {
+const getGlobalData = () => ({
   appBasePath: window.appBasePath,
-  apiPath: window.apiPath,
-  loginPath: window.loginPath,
-  logoutPath: window.logoutPath,
-}
+  apiBasePath: window.apiBasePath,
+  apiLoginPath: window.apiLoginPath,
+  apiLogoutPath: window.apiLogoutPath,
+})
 
 export default getGlobalData

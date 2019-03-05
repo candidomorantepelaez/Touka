@@ -23,7 +23,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var initialConfig = {
   config: {
-    apibasePath: 'http://localhost:8080',
+    apiBasePath: 'http://localhost:8080',
     apiLoginPath: '/login',
     apiLogoutPath: '/logout',
     appBasePath: '/',

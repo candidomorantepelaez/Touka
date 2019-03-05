@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { isAuthorizated } from 'functions'
-import { getCurrentUser } from 'app/reducers'
+import { getCurrentUser } from 'app/reducers/login-reducer'
 
 
 function withAuthentication(WrappedComponent, options = {}) {

@@ -13,7 +13,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _functions = require("../functions");
 
-var _reducers = require("../app/reducers");
+var _loginReducer = require("../app/reducers/login-reducer");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21,7 +21,7 @@ function withAuthentication(WrappedComponent) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var storeConnect = (0, _reactRedux.connect)(function (state) {
     return {
-      currentUser: (0, _reducers.getCurrentUser)(state)
+      currentUser: (0, _loginReducer.getCurrentUser)(state)
     };
   }, function () {
     return {};
