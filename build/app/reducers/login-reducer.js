@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.logging = logging;
+exports.logginIn = logginIn;
 exports.currentUser = currentUser;
-exports.default = exports.getCurrentUser = exports.getLogging = void 0;
+exports.default = exports.getCurrentUser = exports.getlogginIn = void 0;
 
 var _fredux = require("fredux");
 
@@ -14,14 +14,14 @@ var _redux = require("redux");
 var _loginAction = require("../../actions/login-action");
 
 var initialState = {
-  onLogin: {
-    logging: false,
+  auth: {
+    logginIn: false,
     currentUser: {}
   }
 };
 
-function logging() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.onLogin.logging;
+function logginIn() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.auth.logginIn;
 
   var _ref = arguments.length > 1 ? arguments[1] : undefined,
       type = _ref.type;
@@ -42,7 +42,7 @@ function logging() {
 }
 
 function currentUser() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.onLogin.currentUser;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.auth.currentUser;
 
   var _ref2 = arguments.length > 1 ? arguments[1] : undefined,
       type = _ref2.type,
@@ -69,24 +69,24 @@ function currentUser() {
   }
 }
 
-var getOnLoginState = function getOnLoginState(state) {
-  return state.core.onLogin;
+var getAuthState = function getAuthState(state) {
+  return state.core.auth;
 };
 
-var getLogging = function getLogging(state) {
-  return getOnLoginState(state).logging;
+var getlogginIn = function getlogginIn(state) {
+  return getAuthState(state).logginIn;
 };
 
-exports.getLogging = getLogging;
+exports.getlogginIn = getlogginIn;
 
 var getCurrentUser = function getCurrentUser(state) {
-  return getOnLoginState(state).currentUser;
+  return getAuthState(state).currentUser;
 };
 
 exports.getCurrentUser = getCurrentUser;
 
 var _default = (0, _redux.combineReducers)({
-  logging: logging,
+  logginIn: logginIn,
   currentUser: currentUser
 });
 

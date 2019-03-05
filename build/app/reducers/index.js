@@ -15,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var _default = (0, _redux.combineReducers)({
   alerts: _alertReducer.default,
-  onLogin: _loginReducer.default
+  auth: _loginReducer.default
 });
 
 exports.default = _default;

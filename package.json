@@ -1,6 +1,6 @@
 {
   "name": "touka",
-  "version": "0.34.0",
+  "version": "0.43.0",
   "description": "Framework for React App",
   "main": "build/index.js",
   "author": "Candido Morante Pelaez",

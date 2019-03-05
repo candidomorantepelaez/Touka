@@ -4,13 +4,13 @@ import { ON_LOGIN, ON_SAVE_USER_FROM_COOKIE, ON_LOGOUT } from 'actions/login-act
 
 
 const initialState = {
-  onLogin: {
-    logging: false,
+  auth: {
+    logginIn: false,
     currentUser: {},
   },
 }
 
-export function logging(state = initialState.onLogin.logging, { type }) {
+export function logginIn(state = initialState.auth.logginIn, { type }) {
   switch (type) {
     case requestType(ON_LOGIN):
       return true
@@ -23,7 +23,7 @@ export function logging(state = initialState.onLogin.logging, { type }) {
   }
 }
 
-export function currentUser(state = initialState.onLogin.currentUser, { type, payload }) {
+export function currentUser(state = initialState.auth.currentUser, { type, payload }) {
   switch (type) {
     case requestType(ON_LOGIN):
       return {}
@@ -40,12 +40,12 @@ export function currentUser(state = initialState.onLogin.currentUser, { type, pa
   }
 }
 
-const getOnLoginState = state => state.core.onLogin
+const getAuthState = state => state.core.auth
 
-export const getLogging = state => getOnLoginState(state).logging
-export const getCurrentUser = state => getOnLoginState(state).currentUser
+export const getlogginIn = state => getAuthState(state).logginIn
+export const getCurrentUser = state => getAuthState(state).currentUser
 
 export default combineReducers({
-  logging,
+  logginIn,
   currentUser,
 })

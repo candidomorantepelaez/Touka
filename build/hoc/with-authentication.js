@@ -11,7 +11,15 @@ var _reactRedux = require("react-redux");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _reactCookies = _interopRequireDefault(require("react-cookies"));
+
+var _ramda = require("ramda");
+
 var _functions = require("../functions");
+
+var _getGlobalData = _interopRequireDefault(require("../config/get-global-data"));
+
+var _loginAction = require("../actions/login-action");
 
 var _loginReducer = require("../app/reducers/login-reducer");
 
@@ -23,20 +31,44 @@ function withAuthentication(WrappedComponent) {
     return {
       currentUser: (0, _loginReducer.getCurrentUser)(state)
     };
-  }, function () {
-    return {};
+  }, function (dispatch) {
+    return {
+      saveCookieUser: function saveCookieUser(user) {
+        return dispatch((0, _loginAction.saveCurrentUser)(user));
+      }
+    };
   });
 
   var ReturnComponent = function ReturnComponent(_ref) {
-    var currentUser = _ref.currentUser;
+    var currentUser = _ref.currentUser,
+        saveCookieUser = _ref.saveCookieUser;
 
-    if ((0, _functions.isAuthorizated)(currentUser, options.role)) {
+    var getCookieUser = function getCookieUser() {
+      var configData = (0, _getGlobalData.default)();
+
+      var userTemp = _reactCookies.default.load('user_app', {
+        path: configData.appBasePath
+      });
+
+      if (!(0, _ramda.isNil)(userTemp)) {
+        var _user = JSON.parse(userTemp);
+
+        saveCookieUser(_user);
+        return _user;
+      }
+
+      return {};
+    };
+
+    var user = (0, _ramda.isNil)(currentUser.role) ? getCookieUser() : currentUser;
+
+    if ((0, _functions.isAuthorizated)(user, options.roles)) {
       return _react.default.createElement(WrappedComponent, {
         currentUser: currentUser
       });
     }
 
-    return _react.default.createElement("p", null, "Hola");
+    return options.onAuthenticationFailed();
   };
 
   ReturnComponent.propTypes = {
