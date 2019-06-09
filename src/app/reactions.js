@@ -25,7 +25,7 @@ const reactions = [
       const configData = globalData()
       cookie.remove('user_app', { path: configData.appBasePath })
       cookie.remove('session-id', { path: configData.appBasePath })
-      history.push(configData.appBasePath)
+      // history.push(configData.appBasePath)
       return openMessage({ type: 'success', message: 'core.alerts.success.logout' })
     },
   },
