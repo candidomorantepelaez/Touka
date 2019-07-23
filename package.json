@@ -31,6 +31,7 @@
     "babel-polyfill": "^6.26.0",
     "fredux": "^2.0.1",
     "fredux-api-utils": "^2.1.0",
+    "global": "^4.4.0",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.6.2",
@@ -45,7 +46,8 @@
     "redux": "^4.0.1",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
