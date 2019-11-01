@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "eslint-utils": "^1.4.3",
     "fredux": "^2.0.1",
     "fredux-api-utils": "^2.1.0",
     "global": "^4.4.0",
