@@ -1,6 +1,6 @@
 {
   "name": "touka",
-  "version": "0.43.0",
+  "version": "0.44.0",
   "description": "Framework for React App",
   "main": "build/index.js",
   "author": "Candido Morante Pelaez",
@@ -47,8 +47,7 @@
     "redux": "^4.0.1",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.3.0",
-    "yarn": "^1.17.3"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
